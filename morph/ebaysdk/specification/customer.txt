@@ -1,0 +1,121 @@
+数据结构说明：
+1.GetMyMessages: 将DetailLevel设置为ReturnSummary的数据返回
+{
+    'Ack': 'Success',
+    'Summary': {
+        'TotalMessageCount': '15',
+        'TotalHighPriorityCount': '0',
+        'FlaggedMessageCount': '0',
+        'NewHighPriorityCount': '0',
+        'NewMessageCount': '2'
+        'FolderSummary': [
+            {
+                'TotalMessageCount': '4',
+                'FolderID': '0',
+                'NewHighPriorityCount': '0',
+                'NewMessageCount': '1',
+                'TotalHighPriorityCount': '0'
+            },
+            {
+                'TotalMessageCount': '6',
+                'FolderID': '1',
+                'NewHighPriorityCount': '0',
+                'NewMessageCount': '0',
+                'TotalHighPriorityCount': '0'
+            }
+            ...更多Folder...
+        ],
+    }
+}
+2.GetMyMessages: 将DetailLevel设置为ReturnHeaders的数据返回
+{
+    'Ack': 'Success',
+    'Messages': {
+        'Message': [
+            {
+                'ReceiveDate': '2017-03-20T10:44:40.000Z',
+                'ItemID': '282397794537',
+                'SendToName': 'x.x3155',
+                'ItemEndTime': '2017-04-15T09:57:20.000Z',
+                'Sender': 'yaya-wholesale365',
+                'Read': 'true',
+                'Replied': 'false',
+                'MessageType': 'ResponseToASQQuestion',
+                'SendingUserID': '1523976556',
+                'RecipientUserID': 'x.x3155',
+                'ExpirationDate': '2018-03-20T10:44:40.000Z',
+                'MessageID': '86456057783',
+                'ExternalMessageID': '1477335645016',
+                'ItemTitle': '100pcs Electric Manual Soft Guns High Quality Foam Sponge EVA Bullets  New',
+                'Folder': {'FolderID': '0'},
+                'Subject': u'\u95dc\u65bc\uff1a \u9000\u8ca8: x.x3155 \u5c31 100pcs Electric Manual Soft Guns High Quality Foam Sponge EVA Bullets  New\uff0c\u7de8\u865f\u70ba282397794537 \u7684\u7269\u54c1\u5bc4\u51fa\u8a0a\u606f',
+                'Flagged': 'false',
+                'ResponseDetails': {
+                    'ResponseEnabled': 'true',
+                    'ResponseURL': 'http://contact.ebay.com.hk/ws/eBayISAPI.dll?M2MContact&item=282397794537&requested=yaya-wholesale365&qid=1477335645016&redirect=0&messageid=m86456057783'
+                }
+            },
+            {
+                'ReceiveDate': '2017-03-20T10:36:34.000Z',
+                'ItemID': '282397794537',
+                'SendToName': 'x.x3155',
+                'ItemEndTime': '2017-04-15T09:57:20.000Z',
+                'Sender': 'yaya-wholesale365',
+                'Read': 'true',
+                'Replied': 'true',
+                'MessageType': 'ResponseToASQQuestion',
+                'SendingUserID': '1523976556',
+                'RecipientUserID': 'x.x3155',
+                'ExpirationDate': '2018-03-20T10:36:34.000Z',
+                'MessageID': '86455921363',
+                'ExternalMessageID': '1477330845016',
+                'ItemTitle': '100pcs Electric Manual Soft Guns High Quality Foam Sponge EVA Bullets  New',
+                'Folder': {'FolderID': '0'},
+                'Subject': u'\u95dc\u65bc\uff1a \u9000\u8ca8: x.x3155 \u5c31 100pcs Electric Manual Soft Guns High Quality Foam Sponge EVA Bullets  New\uff0c\u7de8\u865f\u70ba282397794537 \u7684\u7269\u54c1\u5bc4\u51fa\u8a0a\u606f',
+                'Flagged': 'false',
+                'ResponseDetails': {
+                    'ResponseEnabled': 'true',
+                    'UserResponseDate': '2017-03-20T10:43:05.000Z',
+                    'ResponseURL': 'http://contact.ebay.com.hk/ws/eBayISAPI.dll?M2MContact&item=282397794537&requested=yaya-wholesale365&qid=1477330845016&redirect=0&messageid=m86455921363'
+                }
+            }
+            ...更多Message...
+        ]
+    }
+}
+3.GetMyMessages: 将DetailLevel设置为ReturnMessages，并提交MessageIDs为["86456057783"]
+注意：当输入多个MessageID时，result["Messages"]["Message]的值应是一个List
+提示：以下Message的内容只比ReturnHeaders获取到的Message多了Content和Text
+{
+    'Ack': 'Success',
+    'Messages': {
+        'Message': {
+            'ReceiveDate': '2017-03-20T10:44:40.000Z',
+            'ItemID': '282397794537',
+            'SendToName': 'x.x3155',
+            'ItemEndTime': '2017-04-15T09:57:20.000Z',
+            'Sender': 'yaya-wholesale365',
+            'Read': 'true',
+            'Text': u'<!DOCTYPE html>...</html>',
+            'Replied': 'false',
+            'MessageType': 'ResponseToASQQuestion',
+            'SendingUserID': '1523976556',
+            'Content': u'<!DOCTYPE html>...</html>',
+            'RecipientUserID': 'x.x3155',
+            'ExpirationDate': '2018-03-20T10:44:40.000Z',
+            'MessageID': '86456057783',
+            'ExternalMessageID': '1477335645016',
+            'ItemTitle': '100pcs Electric Manual Soft Guns High Quality Foam Sponge EVA Bullets  New',
+            'Folder': {'FolderID': '0'},
+            'Subject': u'\u95dc\u65bc\uff1a \u9000\u8ca8: x.x3155 \u5c31 100pcs Electric Manual Soft Guns High Quality Foam Sponge EVA Bullets  New\uff0c\u7de8\u865f\u70ba282397794537 \u7684\u7269\u54c1\u5bc4\u51fa\u8a0a\u606f',
+            'Flagged': 'false',
+            'ResponseDetails': {
+                'ResponseEnabled': 'true',
+                'ResponseURL': 'http://contact.ebay.com.hk/ws/eBayISAPI.dll?M2MContact&item=282397794537&requested=yaya-wholesale365&qid=1477335645016&redirect=0&messageid=m86456057783'}
+            }
+        }
+    }
+}
+
+
+
