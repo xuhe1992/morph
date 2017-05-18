@@ -9,5 +9,5 @@
 from celery import Celery
 from morph.config import celeryconfig
 
-furion_celery = Celery()
-furion_celery.config_from_object(celeryconfig)
+morph_celery = Celery()
+morph_celery.config_from_object(celeryconfig)

@@ -296,7 +296,7 @@ class AliProduct(Connection):
 
 
 # if __name__ == "__main__":
-#     from furion.lib.model.shop import Shop
+#     from morph.lib.model.shop import Shop
 #     shop = Shop()
 #     shop.session = "2190b383-d048-47f1-a14f-5323981557cb"
 #     shop.account = "304d4920-3e1e-47c5-9dd1-39c5753e02af"

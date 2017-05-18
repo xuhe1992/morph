@@ -4,7 +4,7 @@
 # @date: 16/5/26
 # @description: 
 
-from furion.lib.model.shop import Shop
+from morph.lib.model.shop import Shop
 shop = Shop(
     account="da6ed36c890e467f983fbc40b99870e2",
     session="6a4d3537a8134ba4b433c00169ab1a22"

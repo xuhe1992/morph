@@ -14,10 +14,10 @@ from morph.lib.model.session import sessionCM
 from morph.lib.model.shop import Shop
 from morph.lib.model.task import Task
 from morph.lib.utils.logger_util import logger
-from morph.task import furion_celery
+from morph.task import morph_celery
 
 
-@furion_celery.task(ignore_result=True)
+@morph_celery.task(ignore_result=True)
 def sync_customer(task_id, shop_id, timestamp):
     method_route = {
         "eBay": SyncEbayCustomer,
@@ -39,7 +39,7 @@ def sync_customer(task_id, shop_id, timestamp):
             Task.update(session, task)
 
 
-@furion_celery.task(ignore_result=True)
+@morph_celery.task(ignore_result=True)
 def sync_smt_customer(task_id, shop_id, timestamp):
     with sessionCM() as session:
         task = Task.find_by_id(session, task_id)

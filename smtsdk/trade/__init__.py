@@ -1,8 +1,8 @@
 #coding=utf8
 
 import datetime
-from furion.lib.model.shop import Shop
-from furion.lib.utils.logger_util import logger
+from morph.lib.model.shop import Shop
+from morph.lib.utils.logger_util import logger
 
 __author__ = 'Administrator'
 

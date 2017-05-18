@@ -66,7 +66,7 @@ class AliCategory(Connection):
 
 
 # if __name__ == "__main__":
-#     from furion.lib.model.shop import Shop
+#     from morph.lib.model.shop import Shop
 #     shop = Shop()
 #     shop.account = "3dc01f63-48b5-4292-9ca0-350f1c61d0be"
 #     shop.session = "fdfea271-050b-4876-a522-126dd6163e06"

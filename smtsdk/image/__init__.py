@@ -9,7 +9,7 @@ import json
 import requests
 from urllib import urlencode
 from smtsdk.utils import api_signature_rule
-from furion.lib.utils.logger_util import logger
+from morph.lib.utils.logger_util import logger
 from smtsdk.connection import Connection
 
 

@@ -8,8 +8,8 @@ import requests
 import traceback
 from config import Config
 from urllib import urlencode
-from furion.config import settings
-from furion.lib.utils.logger_util import logger
+from morph.config import settings
+from morph.lib.utils.logger_util import logger
 
 
 class Connection(object):

@@ -8,10 +8,10 @@
 
 import traceback
 from morph.lib.utils.logger_util import logger
-from morph.task import furion_celery
+from morph.task import morph_celery
 
 
-@furion_celery.task(ignore_result=True)
+@morph_celery.task(ignore_result=True)
 def sync_customer_detail(handler, channel_id, **kwargs):
     try:
         handler.sync_message_detail(channel_id, **kwargs)
@@ -22,7 +22,7 @@ def sync_customer_detail(handler, channel_id, **kwargs):
             "eBay", str(channel_id), traceback.format_exc(e)))
 
 
-@furion_celery.task(ignore_result=True)
+@morph_celery.task(ignore_result=True)
 def sync_smt_customer_detail(handler, channel_id, msg_source):
     try:
         handler.sync_message_detail(channel_id, msg_source)

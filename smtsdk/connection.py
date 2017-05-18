@@ -10,8 +10,8 @@ import traceback
 from urllib import urlencode
 from smtsdk.config import Config
 from smtsdk.utils import api_signature_rule, param_signature_rule
-from furion.config import settings
-from furion.lib.utils.logger_util import logger
+from morph.config import settings
+from morph.lib.utils.logger_util import logger
 
 
 class Connection(object):

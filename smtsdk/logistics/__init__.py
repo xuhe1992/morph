@@ -5,8 +5,8 @@
 # @description:
 import traceback
 import ujson as json
-from furion.lib.model.shop import Shop
-from furion.lib.utils.logger_util import logger
+from morph.lib.model.shop import Shop
+from morph.lib.utils.logger_util import logger
 
 from smtsdk.connection import Connection
 

@@ -93,7 +93,7 @@ class WishOrder(Connection):
         response = self.execute("order/modify-tracking", params)
         return response
 # #
-# from furion.lib.model.shop import Shop
+# from morph.lib.model.shop import Shop
 # shop = Shop()
 # shop.account = "acc850109f764b41bcf7fa2fe4747628"
 # shop.session = "9151a8f84fca4714a67c09637bd19b09"

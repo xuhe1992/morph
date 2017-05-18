@@ -151,7 +151,7 @@ class WishProduct(Connection):
         return response
 
 
-# from furion.lib.model.shop import Shop
+# from morph.lib.model.shop import Shop
 # s = Shop(account="417982669b1f425a977a60ff18106c40")
 # response = WishProduct(s).create_download_job()
 # print response
