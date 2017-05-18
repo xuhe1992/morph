@@ -47,8 +47,8 @@ class Channel(Base):
     last_msg_id = sa.Column(sa.String(32), nullable=False)
     last_msg_content = sa.Column(sa.String(64), nullable=False)
 
-    attachment = relationship("Attachment", back_populates="channel", cascade="all, delete, delete-orphan")
-    messages = relationship("Message", back_populates="channel", cascade="all, delete, delete-orphan")
+    attachment = relationship("Attachment", backref="channel", cascade="all, delete, delete-orphan")
+    messages = relationship("Message", backref="channel", cascade="all, delete, delete-orphan")
 
     @classmethod
     def create(cls, session, **kwargs):

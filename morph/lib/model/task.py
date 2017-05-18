@@ -5,7 +5,7 @@
 # @description: 
 
 
-import sqlalchemy as SA
+import sqlalchemy as sa
 from sqlalchemy.dialects.mysql import BIGINT, INTEGER
 from sqlalchemy.orm.exc import MultipleResultsFound, NoResultFound
 from morph.lib.model.base import Base
@@ -15,12 +15,12 @@ class Task(Base):
 
     __tablename__ = "task"
 
-    id = SA.Column(BIGINT(unsigned=True), primary_key=True, autoincrement=True)
-    mold = SA.Column(SA.String(32), nullable=False)
-    shop_id = SA.Column(BIGINT(unsigned=True), nullable=True)
-    user_id = SA.Column(BIGINT(unsigned=True), nullable=True)
-    remark = SA.Column(SA.String(1024), nullable=True)
-    status = SA.Column(INTEGER, nullable=False, default=0)
+    id = sa.Column(BIGINT(unsigned=True), primary_key=True, autoincrement=True)
+    mold = sa.Column(sa.String(32), nullable=False)
+    shop_id = sa.Column(BIGINT(unsigned=True), nullable=True)
+    user_id = sa.Column(BIGINT(unsigned=True), nullable=True)
+    remark = sa.Column(sa.String(1024), nullable=True)
+    status = sa.Column(INTEGER, nullable=False, default=0)
 
     @classmethod
     def create(cls, session, mold, shop_id, user_id, remark="0;0"):
@@ -54,7 +54,7 @@ class Task(Base):
     def find_by_shop_mold(cls, session, shop_id, mold):
         try:
             task = session.query(Task).filter(
-                SA.and_(Task.shop_id == shop_id, Task.mold == mold)
+                sa.and_(Task.shop_id == shop_id, Task.mold == mold)
             ).one()
         except MultipleResultsFound:
             return None
@@ -66,7 +66,7 @@ class Task(Base):
     def find_by_user_mold(cls, session, user_id, mold):
         try:
             task = session.query(Task).filter(
-                SA.and_(Task.user_id == user_id, Task.mold == mold)
+                sa.and_(Task.user_id == user_id, Task.mold == mold)
             ).one()
         except MultipleResultsFound:
             return None
@@ -77,7 +77,7 @@ class Task(Base):
     @classmethod
     def find_multi_by_user_mold(cls, session, user_id, mold):
         return session.query(Task).filter(
-            SA.and_(Task.user_id == user_id, Task.mold == mold)
+            sa.and_(Task.user_id == user_id, Task.mold == mold)
         ).all()
 
     def to_json(self):

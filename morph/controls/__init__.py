@@ -45,7 +45,7 @@ class CustomerControls(object):
                 task = Task.find_by_shop_mold(session, shop.id, "sync_customers")
                 start, end = "", datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
                 if not task:
-                    task = Task(user_id=self.user.id, shop_id=shop.id, mold="sync_orders")
+                    task = Task(user_id=self.user.id, shop_id=shop.id, mold="sync_customers")
                 elif task.status == 0:
                     continue
                 else:
