@@ -12,7 +12,6 @@ from morph.lib.model.manage import Management
 from morph.lib.model.session import sessionCM
 from morph.lib.model.shop import Shop
 from morph.lib.model.task import Task
-from morph.task.sync_customer_list import sync_customer_list, sync_smt_customer_list
 
 
 class CustomerControls(object):
@@ -55,6 +54,8 @@ class CustomerControls(object):
                 task.status = 0
                 timestamp = "%s;%s" % (start, end)
                 task_id = Task.save(session, task)
+                from morph.task.sync_customer_list import sync_customer_list
+                from morph.task.sync_customer_list import sync_smt_customer_list
                 if shop.platform == "AliExpress":
                     sync_smt_customer_list(task_id, shop.id, timestamp)
                 else:
