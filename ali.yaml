@@ -1,0 +1,21 @@
+name: ali_api_config
+
+#AliExpress Api Url - https://gw.api.alibaba.com/
+gw.api.alibaba.com:
+    app_key: 7084831
+    app_name: 芽芽科技
+    secret_key: fbrTqokqn6YN
+    namespace: aliexpress.open
+    version: 1
+    protocol: param2
+    redirect_uri: https://www.actneed.com/auth/ali/callback
+
+#AliExpress Api Sandbox
+gw.sandbox.api.alibaba.com:
+    app_key: 5695915
+    app_name: Actneed
+    secret_key: H3hAru41fJrl
+    namespace: aliexpress.open
+    version: 1
+    protocol: param2
+    redirect_uri: https://www.actneed.com/auth/ali/callback

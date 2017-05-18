@@ -1,0 +1,37 @@
+name: ebay_api_config
+
+# Trading API Sandbox - https://www.x.com/developers/ebay/products/trading-api
+api.sandbox.ebay.com:
+    compatability: 967
+    appid: eservice-c20b-42fe-9e8a-57207985eb18
+    certid: 9080af36-5636-427b-9a81-97c0368443b5
+    devid: ff4521d5-0b10-44fe-8f1b-8949aeac030e
+    token: AgAAAA**AQAAAA**aAAAAA**nqJhVA**nY+sHZ2PrBmdj6wVnY+sEZ2PrA2dj6wFk4GhDJiHoQydj6x9nY+seQ**HBMDAA**AAMAAA**hVBYo/8++fh82cztJxfeAqw8ipIHZqvJTHnOxqkzCyaDm21r+lqyVA9y2M1E7l4blh/2vdl2t71r/bDyoaN4jQB2O5mJsBc38tCzm6WG3zND2t82Vc5UnnxlmvHM3RXFTsQ0FXN38Mqs+NelEUgDrLLgc7mIc8KxUUuY4qRP0K1GXrwfqQChK/TApt/cQd2ul77gRgD49XvK9Sr9uAgbjy4/rvRjmAgGOmRWhPVWVTDZ6eeBdMlH7Y8y1ES0UoQS/Yfx4TuRUXtYRsFUQ+TCnFj1jFM4L/aCO0OIMUBP0DXTltT6+4sNe/DxjxLB4VKLeteZA5+tpNtkz5qq2UQ1nM6TaYv0OKqBRIEHucApeQfmPT/maliXlRP+evRpHK0uCC4R0d+GtBFTqaBGIJilIw4DeIv5Iugk77wu7rqQ7jVtygOywpQKSpXzvcmp5tENu3d2OE0h2Ig3Yr1v0TSI2IBG17348v0KW1jcoOo0wZCr7q31sgSmGHiMS5T8O7jpfpUUvHQ3W35B2HcoObGB0wKuM8r/xju2TBJ688dvXASUVDyx1Wi13gWd8lXLiKs5aNc1eMAm5X6uKLuDDOGi8P74HIzCofotyDZbhBOX8tUmnHjQ9z5XHULY+xJ/ENQbqkZypMRLsVTqRZUEUMj6bJ75c5cJw6AfoolHs7/r+oSzGDSgPYnlPbX0XR2De/eTwPWKV+mA6FHJ7tHgThYRWzbxR4Z2VePvwW8u177QooX89WaIOh+lCkD+vo7VqloC
+    https: True
+    runame: Beijing_Xingyun-BeijingX-7a43-4-uxzyoce
+    auth: https://signin.ebay.com/ws/eBayISAPI.dll?SignIn&RuName=%s&SessID=%s&ru_params=%s
+
+# Trading API - https://www.x.com/developers/ebay/products/trading-api
+api.ebay.com:
+    compatability: 967
+    devid: 422a6762-53b2-4b12-a1d4-1b29004234ef
+    appid: BeijingX-9ec5-4c52-82bb-feeb16e913ed
+    certid: e9f57c1c-9134-466e-925b-b22cb6c02229
+    token: AgAAAA**AQAAAA**aAAAAA**qGY7VA**nY+sHZ2PrBmdj6wVnY+sEZ2PrA2dj6AGmICmDpCAoQ+dj6x9nY+seQ**94UCAA**AAMAAA**o+iZNTyOWGAyS8INiizhLa3SUxczTZAzZLrtD3fC0gYdQsNx202XzduoMKYXpMSfOKU3xmBQ+jJLd4yTTKLjkqTmLXHXskAup900s3CdxWfsb016BvDafG3sSO8/XV10eZcyudah6I+uCn2cLGLLlydwwJfpmjBWrlhup6WYfONnGwLwvnyvH2fDvQ9JYbjwbn3MxMuOUrGW+pjQiJ1F4LIV8os+H3EzCdof5x7qK/ID6IEzS0BulgB1SV2PVBnLQLejtY3gH5CiTP2JWZWM4JWJW9Eh5DEnjCiTSElmEEC1xc+v949AedcD/lXdml3dgBGIQHvhXo4sozO8vA+Ifp34PznxIURHv6Wu/SJUS+PqerwfwA5Vh2Cpm/lHILpOoyKQHPKvRdl7Z58pCftt9pv1sJvPq11HK3C20AbNO2oG7ANlT33z8iOlONrfC+HPED0hBheVOO25NGGz+834tIGws+WPRL6tqL41jD293/M4G+IfCsKBxE6U8ZNuoNKroBNn+vD9gMKsbCh/0xDw4f407kSMATrvRihZ24+hs6S7djfaopLjIC8w8bYDoE93u7xinsVeVcVe80D9tzHc9qtq1qzFTCQyMwe1MPXMkazlYjYwCl0fJHOSWHgzTSe3tISnmmT/MKCakXQuKr4q4uFYhh28/SX1j2aNUeoNT4krAQZ2BZOllnN/ItYNv9/LBTpzuFRgEZee6Z7E6CHV4r3Mgw0XdkanRhmZBcxHr93Kwbv/GAKsO4ubQWjQbn7D
+    https: True
+    runame: Beijing_Xingyun-BeijingX-9ec5-4-vgyyiebaa
+    auth: https://signin.ebay.com/ws/eBayISAPI.dll?SignIn&RuName=%s&SessID=%s&ruparams=%s
+
+# Finding API - https://www.x.com/developers/ebay/products/finding-api
+svcs.ebay.com:
+    appid: xingclou-7e11-43b0-b41f-7178fb728f25
+    version: 1.0.0
+
+# Shopping API - https://www.x.com/developers/ebay/products/shopping-api
+open.api.ebay.com:
+    appid: xingclou-7e11-43b0-b41f-7178fb728f25
+    version: 671
+
+# Business Policies API
+# svcs.ebay.com:
+#     appid: xingclou-7e11-43b0-b41f-7178fb728f25

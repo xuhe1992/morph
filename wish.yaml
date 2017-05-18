@@ -1,0 +1,25 @@
+name: wish_api_config
+
+#Wish Api Url - https://merchant.wish.com/api/v2/
+merchant.wish.com:
+    client_id: 568b2433ce2d3e26a82d6c01
+    client_secret: 05610f2b8f0d41028d24627d4602c1db
+    app_name: ActNeed
+    redirect_uri: https://www.actneed.com/auth/wish/callback
+    version: v2
+
+#Wish Api Url - https://merchant.wish.com/api/v2/
+china-merchant.wish.com:
+    client_id: 568b2433ce2d3e26a82d6c01
+    client_secret: 05610f2b8f0d41028d24627d4602c1db
+    app_name: ActNeed
+    redirect_uri: https://www.actneed.com/auth/wish/callback
+    version: v2
+
+#Wish Api Sandbox
+sandbox.merchant.wish.com:
+    client_id: 565916c12b296c7394325b34
+    client_secret: e2ac40a244184dc7895219b34bec9e32
+    app_name: ActNeed
+    redirect_uri: https://www.actneed.com/auth/wish/callback
+    version: v2
