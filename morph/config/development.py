@@ -32,10 +32,10 @@ DB = {
 
 # YAML configure
 # EBAY_YAML = "/Users/xuhe/PyCharmProjects/Morph/ebay.yaml"
-EBAY_YAML = "/home/kratos/src/morph_current/ebay.yaml"
-ALI_YAML = "/home/kratos/src/morph_current/ali.yaml"
-AMAZON_YAML = "/home/kratos/src/morph_current/amazon.yaml"
-WISH_YAML = "/home/kratos/src/morph_current/wish.yaml"
+EBAY_YAML = "/home/kratos/src/morph/ebay.yaml"
+ALI_YAML = "/home/kratos/src/morph/ali.yaml"
+AMAZON_YAML = "/home/kratos/src/morph/amazon.yaml"
+WISH_YAML = "/home/kratos/src/morph/wish.yaml"
 
 # redis configure
 REDIS_HOST = "194.actneed.com"

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3693bca5-14f4-4e7d-96b4-77349e5295d5" name="Default" comment="sync_customer / create_model">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/morph/lib/model/shop.py" afterPath="$PROJECT_DIR$/morph/lib/model/shop.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/morph/config/development.py" afterPath="$PROJECT_DIR$/morph/config/development.py" />
     </list>
     <ignored path="Morph.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -77,10 +77,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="shop.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="shop.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/morph/lib/model/shop.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6814159" vertical-offset="264" max-vertical-offset="4290">
+            <state vertical-scroll-proportion="0.0" vertical-offset="264" max-vertical-offset="4290">
               <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
               <folding>
                 <element signature="e#78#101#0" expanded="true" />
@@ -109,11 +109,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/morph/lib/model/user.py">
+      <file leaf-file-name="development.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/morph/config/development.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.714286" vertical-offset="0" max-vertical-offset="1210">
-              <caret line="12" column="37" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
+            <state vertical-scroll-proportion="0.26205787" vertical-offset="519" max-vertical-offset="1166">
+              <caret line="32" column="16" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -192,7 +192,6 @@
         <option value="$PROJECT_DIR$/wishsdk/product/__init__.py" />
         <option value="$PROJECT_DIR$/morph/start_morph.py" />
         <option value="$PROJECT_DIR$/morph/task/sync_customer_list.py" />
-        <option value="$PROJECT_DIR$/morph/config/development.py" />
         <option value="$PROJECT_DIR$/morph/config/celeryconfig.py" />
         <option value="$PROJECT_DIR$/ebaysdk/trading/message.py" />
         <option value="$PROJECT_DIR$/morph/lib/model/user.py" />
@@ -202,6 +201,7 @@
         <option value="$PROJECT_DIR$/morph/lib/model/channel.py" />
         <option value="$PROJECT_DIR$/morph/lib/model/subgroup.py" />
         <option value="$PROJECT_DIR$/morph/lib/model/shop.py" />
+        <option value="$PROJECT_DIR$/morph/config/development.py" />
       </list>
     </option>
   </component>
@@ -909,7 +909,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -922,7 +922,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20193861" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20193861" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5311615" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1254,14 +1254,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/morph/config/development.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="488" max-vertical-offset="1166">
-          <caret line="41" column="31" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ebaysdk/trading/message.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-19.222221" vertical-offset="3419" max-vertical-offset="4070">
@@ -1390,11 +1382,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/morph/lib/model/shop.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6814159" vertical-offset="264" max-vertical-offset="4290">
+        <state vertical-scroll-proportion="0.0" vertical-offset="264" max-vertical-offset="4290">
           <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
           <folding>
             <element signature="e#78#101#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/morph/config/development.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.26205787" vertical-offset="519" max-vertical-offset="1166">
+          <caret line="32" column="16" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>
