@@ -16,7 +16,6 @@ from sqlalchemy.orm.exc import MultipleResultsFound, NoResultFound
 import hashlib
 from morph.lib.utils.logger_util import logger
 from morph.lib.model.manage import Management
-from sqlalchemy import func, extract
 
 
 class Shop(Base):
@@ -32,7 +31,6 @@ class Shop(Base):
     site_id = SA.Column(SA.INTEGER, nullable=False)
 
     managements = relationship("Management", backref="shop", cascade="delete")
-    groups = relationship("SubGroup", backref="shop", cascade="delete")
 
     @classmethod
     def create(cls, platform, site, step, name=None):

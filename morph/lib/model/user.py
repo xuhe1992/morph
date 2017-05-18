@@ -9,7 +9,9 @@
 
 import sqlalchemy as sa
 from sqlalchemy.dialects.mysql import BIGINT
+from sqlalchemy.orm import relationship
 from morph.lib.model.base import Base
+from morph.lib.model.manage import Management
 
 
 class User(Base):
@@ -27,6 +29,10 @@ class User(Base):
     name = sa.Column(sa.String(64), nullable=True)
     avatar = sa.Column(sa.String(256))
     authority = sa.Column(sa.SmallInteger, default=MEMBER)
+    master = sa.Column(BIGINT(unsigned=True), nullable=True)
+    func = sa.Column(sa.String(64), nullable=True)
+
+    managements = relationship("Management", backref="user", cascade="delete, delete-orphan")
 
     def to_dict(self):
         return {
