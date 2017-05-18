@@ -70,7 +70,6 @@ class EbayMessage(Trading):
         if message_ids:
             req["MessageIDs"] = {"MessageID": message_ids}
         response = self.execute("GetMyMessages", req)
-        print response.dict()
         return response.dict()
 
     def get_member_messages(self, mail_message_type, sender_id=None, item_id=None,
@@ -110,7 +109,6 @@ class EbayMessage(Trading):
         if message_status:
             req["MessageStatus"] = message_status
         response = self.execute("GetMemberMessages", req)
-        print response.dict()
         return response.dict()
 
     def reverse_my_message(self, message_ids, flagged=None, read=None, folder_id=None):
@@ -133,7 +131,6 @@ class EbayMessage(Trading):
         if read is not None:
             req["Read"] = read
         response = self.execute("ReviseMyMessages", req)
-        print response.dict()
         return response.dict()
 
     def add_message_rtq(self, parent_message_id, item_id, recipient_id, body,
@@ -165,7 +162,6 @@ class EbayMessage(Trading):
                 "MediaURL": media["url"]
             } for media in media_list]
         response = self.execute("AddMemberMessageRTQ", req)
-        print response.dict()
         return response.dict()
 
     def add_message_aqq_to_bidder(self):
@@ -175,10 +171,10 @@ class EbayMessage(Trading):
         pass
 
 
-my = "AgAAAA**AQAAAA**aAAAAA**MJHQWA**nY+sHZ2PrBmdj6wVnY+sEZ2PrA2dj6AGmICmDpCAoQ+dj6x9nY+seQ**94UCAA**AAMAAA**o+iZNTyOWGAyS8INiizhLa3SUxczTZAzZLrtD3fC0gYdQsNx202XzduoMKYXpMSfOKU3xmBQ+jJLd4yTTKLjkqTmLXHXskAup900s3CdxWfsb016BvDafG3sSO8/XV10eZcyudah6I+uCn2cLGLLlydwwJfpmjBWrlhup6WYfONnGwLwvnyvH2fDvQ9JYbjwbn3MxMuOUrGW+pjQiJ1F4LIV8os+H3EzCdof5x7qK/ID6IEzS0BulgB1SV2PVBnLQLejtY3gH5CiTP2JWZWM4JWJW9Eh5DEnjCiTSElmEEC1xc+v949AedcD/lXdml3dgBGIQHvhXo4sozO8vA+Ifp34PznxIURHv6Wu/SJUS+PqerwfwA5Vh2Cpm/lHILpOoyKQHPKvRdl7Z58pCftt9pv1sJvPq11HK3C20AbNO2oG7ANlT33z8iOlONrfC+HPED0hBheVOO25NGGz+834tIGws+WPRL6tqL41jD293/M4G+IfCsKBxE6U8ZNuoNKroBNn+vD9gMKsbCh/0xDw4f407kSMATrvRihZ24+hs6S7djfaopLjIC8w8bYDoE93u7xinsVeVcVe80D9tzHc9qtq1qzFTCQyMwe1MPXMkazlYjYwCl0fJHOSWHgzTSe3tISnmmT/MKCakXQuKr4q4uFYhh28/SX1j2aNUeoNT4krAQZ2BZOllnN/ItYNv9/LBTpzuFRgEZee6Z7E6CHV4r3Mgw0XdkanRhmZBcxHr93Kwbv/GAKsO4ubQWjQbn7D"
-nm = "AgAAAA**AQAAAA**aAAAAA**7HTjVw**nY+sHZ2PrBmdj6wVnY+sEZ2PrA2dj6ABkoGoD5aHpAqdj6x9nY+seQ**94UCAA**AAMAAA**UGJaMLGzkw/V30Q7yrFVpkDxh9+F1v7X7taOlLW6WeEQCY/F6PhqPrjJfFLfw5rg93LNBvSQV4hO/cLtHS1K059mXzg61q4xHToNFk2uK+DdoFlCGbc1BD0TRyZ9zOSw4peeHJy/XUG2GwzkyPSrkBlU8X8e2IcZiyqCEILF0yl0ffDJy4Yz62JZVYCCX7HzvI/39N3ROGcUpCVbmxPE+QJI4a2Xst9ApBikHreVDntERITCRj8FhnnmAoDHGWziGN5GlNOQ40ETGX9GUX9yjK31haSpTpIsJRQBYhYeOYwo+F+LV5mFR55XDtuKD837jmKGZvpwll2pN4XhJfVbU7VFWbqyi2p4ccjxNEKXqmbJSSESvXmhiNK5J5EmAZVxh0BmXnNAHYCMJ1gZ7+sa4shnnzH12wcjMjK679iwXyYiK1YTrNmLNei4UeDFBfb2fzqm+eSDQIBK9g+HX/fZkTssU0O1m59wTeS+9GG6Bu7wTZyjU5cbCbjlQl6J4xhy4rs+efJLLAx/PfXmAODHgPF1Ai4rF/YYogFy+V9G0SiQJLQz31yxD3uJuDNyVoEB7/voPAvVutUvZcJzw2LAHIETfHG7GNMoHFA1fyLOF76YIZzsxBylxRY/x12gLlHFaKrtNAJRWpbKHO6usD0GMehDd9a/ALlSqHMPolKyaN6RMWEdov/Drq5PYTW+2OmO8GYyzrmCSk8s+OEv4LhLwkL4YBdYZyKoGo7Qf2FTqbfuYOKMblMi2MDACFSYKuvZ"
-si = "0"
-print EbayMessage(si, nm).get_my_messages(
-    detail_level="ReturnHeaders",
-    message_ids=["87006649816"]
-)
+# my = "AgAAAA**AQAAAA**aAAAAA**MJHQWA**nY+sHZ2PrBmdj6wVnY+sEZ2PrA2dj6AGmICmDpCAoQ+dj6x9nY+seQ**94UCAA**AAMAAA**o+iZNTyOWGAyS8INiizhLa3SUxczTZAzZLrtD3fC0gYdQsNx202XzduoMKYXpMSfOKU3xmBQ+jJLd4yTTKLjkqTmLXHXskAup900s3CdxWfsb016BvDafG3sSO8/XV10eZcyudah6I+uCn2cLGLLlydwwJfpmjBWrlhup6WYfONnGwLwvnyvH2fDvQ9JYbjwbn3MxMuOUrGW+pjQiJ1F4LIV8os+H3EzCdof5x7qK/ID6IEzS0BulgB1SV2PVBnLQLejtY3gH5CiTP2JWZWM4JWJW9Eh5DEnjCiTSElmEEC1xc+v949AedcD/lXdml3dgBGIQHvhXo4sozO8vA+Ifp34PznxIURHv6Wu/SJUS+PqerwfwA5Vh2Cpm/lHILpOoyKQHPKvRdl7Z58pCftt9pv1sJvPq11HK3C20AbNO2oG7ANlT33z8iOlONrfC+HPED0hBheVOO25NGGz+834tIGws+WPRL6tqL41jD293/M4G+IfCsKBxE6U8ZNuoNKroBNn+vD9gMKsbCh/0xDw4f407kSMATrvRihZ24+hs6S7djfaopLjIC8w8bYDoE93u7xinsVeVcVe80D9tzHc9qtq1qzFTCQyMwe1MPXMkazlYjYwCl0fJHOSWHgzTSe3tISnmmT/MKCakXQuKr4q4uFYhh28/SX1j2aNUeoNT4krAQZ2BZOllnN/ItYNv9/LBTpzuFRgEZee6Z7E6CHV4r3Mgw0XdkanRhmZBcxHr93Kwbv/GAKsO4ubQWjQbn7D"
+# nm = "AgAAAA**AQAAAA**aAAAAA**7HTjVw**nY+sHZ2PrBmdj6wVnY+sEZ2PrA2dj6ABkoGoD5aHpAqdj6x9nY+seQ**94UCAA**AAMAAA**UGJaMLGzkw/V30Q7yrFVpkDxh9+F1v7X7taOlLW6WeEQCY/F6PhqPrjJfFLfw5rg93LNBvSQV4hO/cLtHS1K059mXzg61q4xHToNFk2uK+DdoFlCGbc1BD0TRyZ9zOSw4peeHJy/XUG2GwzkyPSrkBlU8X8e2IcZiyqCEILF0yl0ffDJy4Yz62JZVYCCX7HzvI/39N3ROGcUpCVbmxPE+QJI4a2Xst9ApBikHreVDntERITCRj8FhnnmAoDHGWziGN5GlNOQ40ETGX9GUX9yjK31haSpTpIsJRQBYhYeOYwo+F+LV5mFR55XDtuKD837jmKGZvpwll2pN4XhJfVbU7VFWbqyi2p4ccjxNEKXqmbJSSESvXmhiNK5J5EmAZVxh0BmXnNAHYCMJ1gZ7+sa4shnnzH12wcjMjK679iwXyYiK1YTrNmLNei4UeDFBfb2fzqm+eSDQIBK9g+HX/fZkTssU0O1m59wTeS+9GG6Bu7wTZyjU5cbCbjlQl6J4xhy4rs+efJLLAx/PfXmAODHgPF1Ai4rF/YYogFy+V9G0SiQJLQz31yxD3uJuDNyVoEB7/voPAvVutUvZcJzw2LAHIETfHG7GNMoHFA1fyLOF76YIZzsxBylxRY/x12gLlHFaKrtNAJRWpbKHO6usD0GMehDd9a/ALlSqHMPolKyaN6RMWEdov/Drq5PYTW+2OmO8GYyzrmCSk8s+OEv4LhLwkL4YBdYZyKoGo7Qf2FTqbfuYOKMblMi2MDACFSYKuvZ"
+# si = "0"
+# print EbayMessage(si, nm).get_my_messages(
+#     detail_level="ReturnHeaders",
+#     message_ids=["87006649816"]
+# )

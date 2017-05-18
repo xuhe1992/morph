@@ -80,4 +80,4 @@ CELERY_IMPORTS = (
 
 CELERY_SEND_TASK_ERROR_EMAILS = False
 
-BROKER_URL = 'amqp://kratos:GZLxVSdOQTIIKGpeoC3vv5Myh@154.actneed.com:5672/morph'
+BROKER_URL = 'amqp://kratos:GZLxVSdOQTIIKGpeoC3vv5Myh@194.actneed.com:5672/morph'
