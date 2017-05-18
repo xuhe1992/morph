@@ -44,26 +44,31 @@ class AliCustomer(Connection):
         """
         params = {
             "access_token": self.account,
-            "currentPage": current_page, "pageSize": page_size,
-            "msgSources": msg_source, "channelId": channel_id
+            "currentPage": current_page,
+            "pageSize": page_size,
+            "msgSources": msg_source,
+            "channelId": channel_id
         }
         response = self.execute('api.queryMsgDetailList', params)
         return response
 
-    def get_msg_relation_list(self, msg_source, filter_content, current_page=1, page_size=100):
+    def get_msg_relation_list(self, msg_source, current_page=1, page_size=100, filter_condition=None):
         """
         获取与当前卖家建立通信关系的所有通道ID，最多返回5000条数据。
-        :param msg_source:     查询类型
-        :param filter_content: 筛选条件，rank0-rank5，以及readStat:未读和dealStat:未处理
-        :param current_page:   当前页
-        :param page_size:      每页显示数量0-100
+        :param msg_source:       查询类型
+        :param filter_condition: 筛选条件，rank0-rank5，以及readStat:未读和dealStat:未处理
+        :param current_page:     当前页
+        :param page_size:        每页显示数量0-100
         :return: 返回关系列表
         """
         params = {
             "access_token": self.account,
-            "currentPage": current_page, "pageSize": page_size,
-            "msgSources": msg_source, "filter": filter_content
+            "currentPage": current_page,
+            "pageSize": page_size,
+            "msgSources": msg_source,
         }
+        if filter_condition:
+            params["filter"] = filter_condition
         response = self.execute('api.queryMsgRelationList', params)
         return response
 
@@ -76,7 +81,8 @@ class AliCustomer(Connection):
         """
         params = {
             "access_token": self.account,
-            "channelId": channel_id, "dealStat": deal_status
+            "channelId": channel_id,
+            "dealStat": deal_status
         }
         response = self.execute('api.updateMsgProcessed', params)
         return response
@@ -104,7 +110,8 @@ class AliCustomer(Connection):
         """
         params = {
             "access_token": self.account,
-            "channelId": channel_id, "rank": rank
+            "channelId": channel_id,
+            "rank": rank
         }
         response = self.execute('api.updateMsgRank', params)
         return response
@@ -120,8 +127,10 @@ class AliCustomer(Connection):
         """
         params = {
             "access_token": self.account,
-            "currentPage": current_page, "pageSize": page_size,
-            "buyerId": buyer_id, "sellerId": seller_id
+            "currentPage": current_page,
+            "pageSize": page_size,
+            "buyerId": buyer_id,
+            "sellerId": seller_id
         }
         response = self.execute('api.queryMsgDetailListByBuyerId', params)
         return response
@@ -138,8 +147,10 @@ class AliCustomer(Connection):
         """
         params = {
             "access_token": self.account,
-            "channelId": channel_id, "msgSources": msg_sources,
-            "buyerId": buyer_id, "content": content
+            "channelId": channel_id,
+            "msgSources": msg_sources,
+            "buyerId": buyer_id,
+            "content": content
         }
         if image:
             params["imgPath"] = image
