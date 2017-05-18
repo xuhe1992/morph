@@ -12,7 +12,7 @@ from morph.lib.model.manage import Management
 from morph.lib.model.session import sessionCM
 from morph.lib.model.shop import Shop
 from morph.lib.model.task import Task
-from morph.task.sync_customer_list import sync_customer, sync_smt_customer
+from morph.task.sync_customer_list import sync_customer_list, sync_smt_customer_list
 
 
 class CustomerControls(object):
@@ -56,7 +56,7 @@ class CustomerControls(object):
                 timestamp = "%s;%s" % (start, end)
                 task_id = Task.save(session, task)
                 if shop.platform == "AliExpress":
-                    sync_smt_customer(task_id, shop.id, timestamp)
+                    sync_smt_customer_list(task_id, shop.id, timestamp)
                 else:
-                    sync_customer(task_id, shop.id, timestamp)
+                    sync_customer_list(task_id, shop.id, timestamp)
         return {"status": 1, "message": "客服消息已经开始同步，请等待同步完成", "data": error_list}

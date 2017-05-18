@@ -2,20 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3693bca5-14f4-4e7d-96b4-77349e5295d5" name="Default" comment="sync_customer / create_model">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/morph/task/__init__.py" afterPath="$PROJECT_DIR$/morph/task/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/smtsdk/category/__init__.py" afterPath="$PROJECT_DIR$/smtsdk/category/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/smtsdk/image/__init__.py" afterPath="$PROJECT_DIR$/smtsdk/image/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/smtsdk/logistics/__init__.py" afterPath="$PROJECT_DIR$/smtsdk/logistics/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/smtsdk/product/__init__.py" afterPath="$PROJECT_DIR$/smtsdk/product/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/smtsdk/trade/__init__.py" afterPath="$PROJECT_DIR$/smtsdk/trade/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wishsdk/order/__init__.py" afterPath="$PROJECT_DIR$/wishsdk/order/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wishsdk/product/__init__.py" afterPath="$PROJECT_DIR$/wishsdk/product/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/smtsdk/connection.py" afterPath="$PROJECT_DIR$/smtsdk/connection.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wishsdk/connection.py" afterPath="$PROJECT_DIR$/wishsdk/connection.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/morph/task/sync_customer_detail.py" afterPath="$PROJECT_DIR$/morph/task/sync_customer_detail.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/morph/controls/__init__.py" afterPath="$PROJECT_DIR$/morph/controls/__init__.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/morph/task/sync_customer_list.py" afterPath="$PROJECT_DIR$/morph/task/sync_customer_list.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wishsdk/test.py" afterPath="$PROJECT_DIR$/wishsdk/test.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Morph.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -44,31 +32,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/morph/controls/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.5781711" vertical-offset="796" max-vertical-offset="1474">
+              <caret line="54" column="31" selection-start-line="54" selection-start-column="31" selection-end-line="54" selection-end-column="31" />
+              <folding>
+                <element signature="e#78#87#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sync_customer_list.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/morph/task/sync_customer_list.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="708" max-vertical-offset="1386">
+              <caret line="42" column="26" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="26" />
+              <folding>
+                <element signature="e#78#94#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="test_morph.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/morph/test_morph.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="160" max-vertical-offset="1518">
               <caret line="22" column="20" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/smtsdk/logistics/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="6" max-vertical-offset="3586">
-              <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/smtsdk/trade/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1776" max-vertical-offset="2222">
-              <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -134,10 +126,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="start_morph.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="start_morph.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/morph/start_morph.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33333334" vertical-offset="82" max-vertical-offset="1606">
+            <state vertical-scroll-proportion="0.0" vertical-offset="82" max-vertical-offset="1606">
               <caret line="23" column="26" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
               <folding />
             </state>
@@ -164,7 +156,6 @@
         <option value="$PROJECT_DIR$/morph/lib/model/site.py" />
         <option value="$PROJECT_DIR$/morph/lib/model/task.py" />
         <option value="$PROJECT_DIR$/morph/lib/model/shop.py" />
-        <option value="$PROJECT_DIR$/morph/controls/__init__.py" />
         <option value="$PROJECT_DIR$/morph/views/base.py" />
         <option value="$PROJECT_DIR$/morph/controls/wish/sync.py" />
         <option value="$PROJECT_DIR$/morph/controls/dispatch.py" />
@@ -191,7 +182,6 @@
         <option value="$PROJECT_DIR$/morph/config/celeryconfig.py" />
         <option value="$PROJECT_DIR$/morph/task/__init__.py" />
         <option value="$PROJECT_DIR$/morph/task/sync_customer_detail.py" />
-        <option value="$PROJECT_DIR$/morph/task/sync_customer_list.py" />
         <option value="$PROJECT_DIR$/smtsdk/connection.py" />
         <option value="$PROJECT_DIR$/smtsdk/image/__init__.py" />
         <option value="$PROJECT_DIR$/smtsdk/logistics/__init__.py" />
@@ -203,6 +193,8 @@
         <option value="$PROJECT_DIR$/wishsdk/order/__init__.py" />
         <option value="$PROJECT_DIR$/wishsdk/product/__init__.py" />
         <option value="$PROJECT_DIR$/morph/start_morph.py" />
+        <option value="$PROJECT_DIR$/morph/task/sync_customer_list.py" />
+        <option value="$PROJECT_DIR$/morph/controls/__init__.py" />
       </list>
     </option>
   </component>
@@ -1049,14 +1041,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/morph/controls/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="10.111111" vertical-offset="691" max-vertical-offset="1342">
-          <caret line="25" column="36" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/smtsdk/evaluation/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1540">
@@ -1291,16 +1275,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/morph/task/sync_customer_list.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.6785715" vertical-offset="996" max-vertical-offset="1386">
-          <caret line="41" column="14" selection-start-line="41" selection-start-column="14" selection-end-line="41" selection-end-column="14" />
-          <folding>
-            <element signature="e#78#94#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/smtsdk/connection.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="116" max-vertical-offset="4202">
@@ -1393,9 +1367,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/morph/start_morph.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334" vertical-offset="82" max-vertical-offset="1606">
+        <state vertical-scroll-proportion="0.0" vertical-offset="82" max-vertical-offset="1606">
           <caret line="23" column="26" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/morph/task/sync_customer_list.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="708" max-vertical-offset="1386">
+          <caret line="42" column="26" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="26" />
+          <folding>
+            <element signature="e#78#94#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/morph/controls/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5781711" vertical-offset="796" max-vertical-offset="1474">
+          <caret line="54" column="31" selection-start-line="54" selection-start-column="31" selection-end-line="54" selection-end-column="31" />
+          <folding>
+            <element signature="e#78#87#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -18,7 +18,7 @@ from morph.task import morph_celery
 
 
 @morph_celery.task(ignore_result=True)
-def sync_customer(task_id, shop_id, timestamp):
+def sync_customer_list(task_id, shop_id, timestamp):
     method_route = {
         "eBay": SyncEbayCustomer,
         "Wish": SyncWishCustomer,
@@ -40,7 +40,7 @@ def sync_customer(task_id, shop_id, timestamp):
 
 
 @morph_celery.task(ignore_result=True)
-def sync_smt_customer(task_id, shop_id, timestamp):
+def sync_smt_customer_list(task_id, shop_id, timestamp):
     with sessionCM() as session:
         task = Task.find_by_id(session, task_id)
         shop = Shop.find_by_id(session, shop_id)
