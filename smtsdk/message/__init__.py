@@ -10,7 +10,7 @@
 from smtsdk.connection import Connection
 
 
-class AliCustomer(Connection):
+class AliMessage(Connection):
 
     """
     速卖通消息SDK，以下是在使用SDK过程中使用的术语，用于参考。

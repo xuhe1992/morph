@@ -10,13 +10,12 @@
 import sqlalchemy as SA
 from sqlalchemy.dialects.mysql import BIGINT
 from sqlalchemy.orm import relationship
-from furion.lib.model.base import Base
-from furion.lib.model.session import sessionCM
+from morph.lib.model.base import Base
+from morph.lib.model.session import sessionCM
 from sqlalchemy.orm.exc import MultipleResultsFound, NoResultFound
 import hashlib
-from furion.lib.utils.logger_util import logger
-from furion.lib.model.manage import Management
-from furion.lib.model.subgroup import SubGroup
+from morph.lib.utils.logger_util import logger
+from morph.lib.model.manage import Management
 from sqlalchemy import func, extract
 
 

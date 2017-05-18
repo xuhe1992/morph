@@ -29,6 +29,12 @@ DB = {
     "db_name": "fr",
 }
 
+# YAML configure
+EBAY_YAML = "/home/kratos/src/morph_current/ebay.yaml"
+ALI_YAML = "/home/kratos/src/morph_current/ali.yaml"
+AMAZON_YAML = "/home/kratos/src/morph_current/amazon.yaml"
+WISH_YAML = "/home/kratos/src/morph_current/wish.yaml"
+
 # redis configure
 REDIS_HOST = "230.actneed.com"
 REDIS_PORT = 6363

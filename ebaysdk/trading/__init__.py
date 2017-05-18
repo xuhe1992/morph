@@ -697,9 +697,6 @@ class Connection(BaseConnection):
             xml = smart_encode(xml)
         xml += smart_encode(dict2xml(data))
         xml += "</" + self.verb + "Request>"
-        from furion.lib.utils.logger_util import logger
-        logger.info(xml)
-        print xml
         return xml
 
     def warnings(self):

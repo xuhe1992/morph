@@ -7,7 +7,7 @@
 @description:
 """
 
-from furion.config import settings
+from morph.config import settings
 from ebaysdk.trading import Connection as Trading
 
 

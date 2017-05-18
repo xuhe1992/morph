@@ -8,7 +8,6 @@ Licensed under CDDL 1.0
 import sys
 
 from lxml import etree as ET
-from furion.lib.utils.logger_util import logger
 
 
 def python_2_unicode_compatible(klass):

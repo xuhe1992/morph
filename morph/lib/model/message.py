@@ -14,14 +14,13 @@ from morph.lib.model.base import Base
 
 class Message(Base):
     """
-    通讯管道表
+    消息数据，一个管道包含多条消息数据
     """
     __tablename__ = "message"
 
     id = sa.Column(BIGINT(unsigned=True), primary_key=True, autoincrement=True)
-    channel_id = sa.Column(BIGINT(unsigned=True), nullable=False)
+    channel_id = sa.Column(BIGINT(unsigned=True), sa.ForeignKey("channel.id"), nullable=False)
     origin_id = sa.Column(sa.String(64), nullable=False)
-    msg_type = sa.Column(sa.String(32), nullable=True)
     content = sa.Column(sa.Text, nullable=False)
     image_urls = sa.Column(sa.String(1024), nullable=True)
     receive_time = sa.Column(sa.Date, nullable=False)
@@ -59,6 +58,15 @@ class Message(Base):
     def find_by_id(cls, session, message_id):
         try:
             return session.query(cls).filter(cls.id == message_id).one()
+        except NoResultFound:
+            pass
+        except MultipleResultsFound:
+            pass
+
+    @classmethod
+    def find_by_origin_id(cls, session, origin_id):
+        try:
+            return session.query(cls).filter(cls.origin_id == origin_id).one()
         except NoResultFound:
             pass
         except MultipleResultsFound:

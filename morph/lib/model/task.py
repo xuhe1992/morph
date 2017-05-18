@@ -8,7 +8,7 @@
 import sqlalchemy as SA
 from sqlalchemy.dialects.mysql import BIGINT, INTEGER
 from sqlalchemy.orm.exc import MultipleResultsFound, NoResultFound
-from furion.lib.model.base import Base
+from morph.lib.model.base import Base
 
 
 class Task(Base):

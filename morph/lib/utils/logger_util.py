@@ -1,10 +1,9 @@
 # -*- coding: utf8 -*-
 
 
-import json
 import logging
 import logging.handlers
-from hades.config import settings
+from morph.config import settings
 
 
 BLACK, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE = range(8)

@@ -8,7 +8,7 @@
 """
 
 import sqlalchemy as SA
-from furion.lib.model.base import Base
+from morph.lib.model.base import Base
 
 
 class Site(Base):

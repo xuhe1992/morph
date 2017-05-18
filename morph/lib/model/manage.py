@@ -9,7 +9,7 @@
 
 import sqlalchemy as SA
 from sqlalchemy.dialects.mysql import BIGINT, INTEGER
-from furion.lib.model.base import Base
+from morph.lib.model.base import Base
 
 
 class Management(Base):
@@ -38,7 +38,7 @@ class Management(Base):
         return management
 
     @classmethod
-    def find_management_by_user_id(cls, session, user_id):
+    def find_by_user_id(cls, session, user_id):
         managements = session.query(cls).filter(cls.user_id == user_id).all()
         return managements
 
