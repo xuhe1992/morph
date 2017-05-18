@@ -14,6 +14,7 @@ from morph.lib.model.attachment import Attachment
 from morph.lib.model.channel import Channel
 from morph.lib.model.session import sessionCM
 from morph.lib.model.message import Message
+from morph.lib.utils.logger_util import logger
 from morph.task.sync_customer_detail import sync_customer_detail
 
 
@@ -107,3 +108,8 @@ class SyncEbayCustomer(object):
                         image_urls=";".join(pic_rs), content=content,
                         receive_time=message["ReceiveDate"].rsplit(".", 1)[0]
                     )
+
+    def execute(self):
+        logger.info("正在同步店铺ID为%d的eBay客服消息" % self.shop.id)
+        self.sync_message_list()
+        logger.info("店铺ID为%d的eBay客服消息同步完成" % self.shop.id)
