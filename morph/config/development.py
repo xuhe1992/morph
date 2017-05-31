@@ -17,7 +17,7 @@ MAX_POOL_SIZE = 20
 
 # log configure
 LOG_PATH = '/tmp/'
-LOG_FILE = os.path.sep.join([LOG_PATH, 'hades.log'])
+LOG_FILE = os.path.sep.join([LOG_PATH, 'morph.log'])
 DEFAULT_LOG_SIZE = 1024*1024*50
 
 # mysql configure
