@@ -107,7 +107,10 @@ class SyncEbayCustomer(object):
         href_pattern = re.compile('(<a[^>]+?)>')
         with sessionCM() as session:
             channel = Channel.find_by_id(session, channel_id)
-            for message in result["Messages"]["Message"]:
+            message_list = result["Messages"]["Message"]
+            if not isinstance(message_list, list):
+                message_list = [message_list]
+            for message in message_list:
                 if Message.find_by_origin_id(session, message["MessageID"]):
                     continue
                 if message["Sender"] == "eBay":
