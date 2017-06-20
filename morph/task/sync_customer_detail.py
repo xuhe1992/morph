@@ -22,11 +22,12 @@ def sync_customer_detail(shop, channel_id, **kwargs):
         }
         handler = method_route[shop.platform](shop)
         handler.sync_message_detail(channel_id, **kwargs)
-        logger.info(u"%s平台编号为%s的客服消息通道同步成功" % (shop.platform, str(channel_id)))
+        logger.info(u"%s平台编号为%s的客服消息通道同步成功，IDs=%s" % (
+            shop.platform, str(channel_id), str(kwargs["message_ids"])))
     except Exception, e:
         logger.error(traceback.format_exc(e))
-        logger.info(u"%s平台编号为%s的客服消息通道同步失败，失败原因：%s" % (
-            shop.platform, str(channel_id), traceback.format_exc(e)))
+        logger.info(u"%s平台编号为%s的客服消息通道同步失败，IDs=%s，失败原因：%s" % (
+            shop.platform, str(channel_id), str(kwargs["message_ids"]), traceback.format_exc(e)))
 
 
 @morph_celery.task(ignore_result=True)
