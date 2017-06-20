@@ -24,6 +24,7 @@ class Message(Base):
     content = sa.Column(sa.Text(collation="utf8_bin"), nullable=False)
     image_urls = sa.Column(sa.String(1024), nullable=True)
     receive_time = sa.Column(sa.DateTime, nullable=False)
+    source = sa.Column(sa.String(8), nullable=False)
     
     @classmethod
     def create(cls, session, **kwargs):
