@@ -23,7 +23,7 @@ class Message(Base):
     origin_id = sa.Column(sa.String(64), nullable=False)
     content = sa.Column(sa.Text, nullable=False)
     image_urls = sa.Column(sa.String(1024), nullable=True)
-    receive_time = sa.Column(sa.Date, nullable=False)
+    receive_time = sa.Column(sa.DateTime, nullable=False)
     
     @classmethod
     def create(cls, session, **kwargs):

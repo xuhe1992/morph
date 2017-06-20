@@ -15,7 +15,6 @@ from morph.lib.model.channel import Channel
 from morph.lib.model.message import Message
 from morph.lib.model.session import sessionCM
 from morph.lib.utils.logger_util import logger
-from morph.task.sync_customer_detail import sync_customer_detail
 
 
 class SyncEbayCustomer(object):
@@ -39,14 +38,17 @@ class SyncEbayCustomer(object):
         result = self.msg_handler.get_my_messages("ReturnSummary", start_time=start, end_time=end)
         # 第二步：获取每个文件夹下的Message简要信息，从而获取MessageIDs
         for summary in result["Summary"]["FolderSummary"]:
+            logger.info("eBay-%d:正在获取FolderID为%s的MessageList" % (self.shop.id, summary["FolderID"]))
             if summary["FolderID"] == "2":
                 continue
-            self._get_messages_in_folder(summary["FolderID"], start, end)
+            yield self._get_messages_in_folder(summary["FolderID"], start, end)
+            logger.info("eBay-%d:FolderID为%s的MessageList同步完成" % (self.shop.id, summary["FolderID"]))
+            logger.info("-" * 30)
 
     def _get_messages_in_folder(self, folder_id, start, end, current_page=1, page_size=200):
         seller_id = self.shop.owner
         with sessionCM() as session:
-            message_ids = list()
+            message_dict = dict()
             while True:
                 logger.info("eBay-%d:正在同步第%d页的MessageList" % (self.shop.id, current_page))
                 result = self.msg_handler.get_my_messages(
@@ -55,7 +57,6 @@ class SyncEbayCustomer(object):
                 if not result["Messages"]:
                     break
                 for header in result["Messages"]["Message"]:
-                    logger.info(header)
                     read_stat, deal_stat = True, True
                     if header["Sender"] == seller_id:
                         seller_name, buyer_id, buyer_name = seller_id, header["SendToName"], header["SendToName"]
@@ -91,14 +92,11 @@ class SyncEbayCustomer(object):
                             session, channel_id=channel.id,
                             name=header["ItemTitle"], product_url=product_url
                         )
-                    message_ids.append(header["MessageID"])
-                    if len(message_ids) == 10:
-                        sync_customer_detail.delay(self.shop, channel.id, message_ids=message_ids)
-                        message_ids = list()
+                    if not message_dict.get(channel.id):
+                        message_dict[channel.id] = list()
+                    message_dict[channel.id].append(header["MessageID"])
                 current_page += 1
-            logger.info("剩余的MessageIDs")
-            logger.info(message_ids)
-        logger.info("eBay-%d:MessageList同步完成" % self.shop.id)
+        return message_dict
 
     def sync_message_detail(self, channel_id, **kwargs):
         # 第三步获取Message的详细信息
@@ -135,5 +133,5 @@ class SyncEbayCustomer(object):
 
     def execute(self):
         logger.info("正在同步店铺ID为%d的eBay客服消息" % self.shop.id)
-        self.sync_message_list()
-        logger.info("店铺ID为%d的eBay客服消息同步完成" % self.shop.id)
+        for result in self.sync_message_list():
+            yield result

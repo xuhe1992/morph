@@ -15,6 +15,7 @@ from morph.lib.model.shop import Shop
 from morph.lib.model.task import Task
 from morph.lib.utils.logger_util import logger
 from morph.task import morph_celery
+from morph.task.sync_customer_detail import sync_customer_detail
 
 
 @morph_celery.task(ignore_result=True)
@@ -29,7 +30,15 @@ def sync_customer_list(task_id, shop_id, timestamp):
         handler = method_route[shop.platform](shop, timestamp)
         try:
             logger.info(timestamp)
-            handler.execute()
+            for message_dict in handler.execute():
+                if not message_dict:
+                    continue
+                for channel_id, message_ids in message_dict.items():
+                    for i in range(0, len(message_ids), 10):
+                        sync_customer_detail.delay(
+                            handler.shop, channel_id,
+                            message_ids=message_ids[i: i+10]
+                        )
             task.status = 1
             task.remark = timestamp
         except Exception, e:
@@ -55,6 +64,3 @@ def sync_smt_customer_list(task_id, shop_id, timestamp):
             task.status = -1
         finally:
             Task.update(session, task)
-
-
-# sync_customer_list(15569, 7612, ";2017-06-19T10:55:00")
