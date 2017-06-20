@@ -20,7 +20,7 @@ from morph.task.sync_customer_detail import sync_customer_detail
 
 class SyncEbayCustomer(object):
 
-    def __init__(self, shop, timestamp):
+    def __init__(self, shop, timestamp=None):
         self.shop = shop
         self.timestamp = timestamp
         self.msg_handler = EbayMessage(shop.site_id, shop.account)
@@ -93,9 +93,11 @@ class SyncEbayCustomer(object):
                         )
                     message_ids.append(header["MessageID"])
                     if len(message_ids) == 10:
-                        sync_customer_detail.delay(self, channel.id, message_ids=message_ids)
+                        sync_customer_detail.delay(self.shop, channel.id, message_ids=message_ids)
                         message_ids = list()
                 current_page += 1
+            logger.info("剩余的MessageIDs")
+            logger.info(message_ids)
         logger.info("eBay-%d:MessageList同步完成" % self.shop.id)
 
     def sync_message_detail(self, channel_id, **kwargs):

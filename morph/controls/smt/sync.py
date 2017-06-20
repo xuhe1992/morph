@@ -17,7 +17,7 @@ from smtsdk.evaluation import AliEvaluation
 
 class SyncSmtCustomer(object):
 
-    def __init__(self, shop, timestamp):
+    def __init__(self, shop, timestamp=None):
         self.shop = shop
         self.timestamp = timestamp
         self.msg_handler = AliMessage(shop)
