@@ -28,13 +28,14 @@ class SyncEbayCustomer(object):
     def sync_message_list(self):
         # 第一步：获取所有消息文件夹
         start, end = self.timestamp.split(";")
+        end = datetime.datetime.strptime(end, "%Y-%m-%dT%H:%M:%S") - datetime.timedelta(days=1)
         if not start:
-            start, end = None, None
+            start = end - datetime.timedelta(days=365)
         else:
             start = datetime.datetime.strptime(start, "%Y-%m-%dT%H:%M:%S") - datetime.timedelta(days=1)
-            end = datetime.datetime.strptime(end, "%Y-%m-%dT%H:%M:%S") - datetime.timedelta(days=1)
             start = start.strftime("%Y-%m-%dT%H:%M:%S")
             end = end.strftime("%Y-%m-%dT%H:%M:%S")
+        logger.info("eBay-%d:正在获取FolderSummary" % self.shop.id)
         result = self.msg_handler.get_my_messages("ReturnSummary", start_time=start, end_time=end)
         # 第二步：获取每个文件夹下的Message简要信息，从而获取MessageIDs
         for summary in result["Summary"]["FolderSummary"]:
@@ -56,7 +57,10 @@ class SyncEbayCustomer(object):
                     current_page=current_page, page_size=page_size)
                 if not result["Messages"]:
                     break
-                for header in result["Messages"]["Message"]:
+                message_list = result["Messages"]["Message"]
+                if not isinstance(message_list, list):
+                    message_list = [message_list]
+                for header in message_list:
                     read_stat, deal_stat = True, True
                     if header["Sender"] == seller_id:
                         seller_name, buyer_id, buyer_name = seller_id, header["SendToName"], header["SendToName"]
@@ -95,6 +99,8 @@ class SyncEbayCustomer(object):
                     if not message_dict.get(channel.id):
                         message_dict[channel.id] = list()
                     message_dict[channel.id].append(header["MessageID"])
+                if len(message_list) < page_size:
+                    break
                 current_page += 1
         return message_dict
 
