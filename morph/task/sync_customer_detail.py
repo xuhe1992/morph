@@ -21,11 +21,11 @@ def sync_customer_detail(shop, channel_id, **kwargs):
             "Wish": SyncWishCustomer,
         }
         handler = method_route[shop.platform](shop)
-        handler.sync_message_detail(**kwargs)
-        logger.info("%s平台编号为%s的客服消息通道同步成功" % (shop.platform, str(channel_id)))
+        handler.sync_message_detail(channel_id, **kwargs)
+        logger.info(u"%s平台编号为%s的客服消息通道同步成功" % (shop.platform, str(channel_id)))
     except Exception, e:
         logger.error(traceback.format_exc(e))
-        logger.info("%s平台编号为%s的客服消息通道同步失败，失败原因：%s" % (
+        logger.info(u"%s平台编号为%s的客服消息通道同步失败，失败原因：%s" % (
             shop.platform, str(channel_id), traceback.format_exc(e)))
 
 
@@ -33,8 +33,8 @@ def sync_customer_detail(shop, channel_id, **kwargs):
 def sync_smt_customer_detail(handler, channel_id, **kwargs):
     try:
         handler.sync_message_detail(channel_id, **kwargs)
-        logger.info("%s平台编号为%s的客服通道同步成功" % ("AliExpress", str(channel_id)))
+        logger.info(u"AliExpress平台编号为%s的客服通道同步成功" % str(channel_id))
     except Exception, e:
         logger.error(traceback.format_exc(e))
-        logger.info("%s平台编号为%s的客服通道同步失败，失败原因：%s" % (
-            "AliExpress", str(channel_id), traceback.format_exc(e)))
+        logger.info(u"AliExpress平台编号为%s的客服通道同步失败，失败原因：%s" % (
+            str(channel_id), traceback.format_exc(e)))
