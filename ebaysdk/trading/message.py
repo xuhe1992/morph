@@ -8,6 +8,7 @@
 """
 
 from morph.config import settings
+from morph.lib.utils.logger_util import logger
 from ebaysdk.trading import Connection as Trading
 
 

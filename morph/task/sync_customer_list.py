@@ -55,3 +55,6 @@ def sync_smt_customer_list(task_id, shop_id, timestamp):
             task.status = -1
         finally:
             Task.update(session, task)
+
+
+sync_customer_list(15569, 7612, ";2017-06-19T10:55:00")

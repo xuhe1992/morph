@@ -31,8 +31,8 @@ DB = {
 }
 
 # YAML configure
-# EBAY_YAML = "/Users/xuhe/PyCharmProjects/Morph/ebay.yaml"
-EBAY_YAML = "/home/kratos/src/morph/ebay.yaml"
+EBAY_YAML = "/Users/xuhe/PyCharmProjects/Morph/ebay.yaml"
+# EBAY_YAML = "/home/kratos/src/morph/ebay.yaml"
 ALI_YAML = "/home/kratos/src/morph/ali.yaml"
 AMAZON_YAML = "/home/kratos/src/morph/amazon.yaml"
 WISH_YAML = "/home/kratos/src/morph/wish.yaml"
