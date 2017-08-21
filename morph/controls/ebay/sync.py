@@ -136,7 +136,7 @@ class SyncEbayCustomer(object):
                         session, channel_id=channel_id, origin_id=message["MessageID"],
                         image_urls=";".join(pic_rs), content=content,
                         receive_time=message["ReceiveDate"].rsplit(".", 1)[0],
-                        source="sender" if message["Sender"] == channel.seller_id else "buyer"
+                        source="seller" if message["Sender"] == channel.seller_id else "buyer"
                     )
                     if message["MessageID"] == channel.last_msg_id:
                         Channel.update(session, channel, last_msg_content=content)
