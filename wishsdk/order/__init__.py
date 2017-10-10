@@ -93,12 +93,12 @@ class WishOrder(Connection):
         response = self.execute("order/modify-tracking", params)
         return response
 # #
-# from morph.lib.model.shop import Shop
-# shop = Shop()
-# shop.account = "acc850109f764b41bcf7fa2fe4747628"
-# shop.session = "9151a8f84fca4714a67c09637bd19b09"
-# wo = WishOrder(shop)
-# # z = wo.retrieve_recently_changed_orders("20", "2016-07-04T20:10:20")
-# z = wo.retrieve_unfulfilled_orders(0,0)
-# print z
-# print len(z["data"])
+from morph.lib.model.shop import Shop
+shop = Shop()
+shop.account = "acc850109f764b41bcf7fa2fe4747628"
+shop.session = "9151a8f84fca4714a67c09637bd19b09"
+wo = WishOrder(shop)
+# z = wo.retrieve_recently_changed_orders("20", "2016-07-04T20:10:20")
+z = wo.retrieve_unfulfilled_orders(0,0)
+print z
+print len(z["data"])

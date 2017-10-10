@@ -44,8 +44,9 @@ session_settings = dict(
 from morph.views.frontend.test import TestHandler
 
 handlers = [
-    ("/", TestHandler),
-    ("/external/api/customer/([\w/]+)", CustomerHandler)
+    # ("/", TestHandler),
+    # ("/external/api/customer/([\w/]+)", CustomerHandler)
+    (r"/customer/([\w/]+)", CustomerHandler),
 ]
 
 

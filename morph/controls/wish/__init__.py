@@ -7,9 +7,11 @@
 """
 
 from morph.controls import CustomerControls
+from morph.lib.model.user import User
 
 
 class WishCustomer(CustomerControls):
 
-    def __init__(self):
-        CustomerControls.__init__(self)
+    def __init__(self, **kwargs):
+        user = User()
+        CustomerControls.__init__(self, user, kwargs)

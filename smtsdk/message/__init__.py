@@ -8,6 +8,7 @@
 """
 
 from smtsdk.connection import Connection
+from morph.lib.model.shop import Shop
 
 
 class AliMessage(Connection):
@@ -135,7 +136,7 @@ class AliMessage(Connection):
         response = self.execute('api.queryMsgDetailListByBuyerId', params)
         return response
 
-    def add_msg(self, channel_id, buyer_id, content, msg_sources, image=None):
+    def add_msg(self, buyer_id, content, msg_sources, channel_id=None, image=None):
         """
         在指定通道ID上发布新的消息，用于回复订单留言或站内信
         :param channel_id:  通道ID
@@ -147,12 +148,42 @@ class AliMessage(Connection):
         """
         params = {
             "access_token": self.account,
-            "channelId": channel_id,
             "msgSources": msg_sources,
             "buyerId": buyer_id,
             "content": content
         }
+        if channel_id:
+            params.update({"channelId": channel_id})
         if image:
             params["imgPath"] = image
         response = self.execute('api.addMsg', params)
         return response
+
+
+if __name__ == "__main__":
+    shop = Shop()
+    shop.account = "6bf331f0-8e5b-4edb-96a4-5fabf975834c"
+    shop.session = "0bdf6f64-372d-4b6 a-b68b-5efe64bc18bd"
+    shop.site_id = 2
+    shop.platform = "AliExpress"
+    shop.name = 'Limerence'
+    handler = AliMessage(shop)
+    # result = handler.get_msg_detail_list(
+    #     channel_id="66947353601", msg_source="message_center"
+    # )
+
+    # result = handler.get_msg_relation_list(
+    #     msg_source="order_msg",
+    #     current_page=1,
+    #     page_size=10
+    # )
+
+    # result = handler.get_msg_detail_list("112122263502", "message_center",
+    #                                      current_page=1, page_size=10
+    #                                      )
+
+    # result = handler.get_msg_by_buyer(
+    #     buyer_id='be1085531967', seller_id='cn1518385543rqhd'
+    # )
+    # import json
+    # print json.dumps(result, indent=2)

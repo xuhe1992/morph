@@ -70,7 +70,10 @@ class EbayMessage(Trading):
             req["FolderID"] = folder_id
         if message_ids:
             req["MessageIDs"] = {"MessageID": message_ids}
+
+        print req
         response = self.execute("GetMyMessages", req)
+        print response, type(response)
         return response.dict()
 
     def get_member_messages(self, mail_message_type, sender_id=None, item_id=None,
@@ -168,14 +171,82 @@ class EbayMessage(Trading):
     def add_message_aqq_to_bidder(self):
         pass
 
-    def add_message_aqq_to_partner(self):
-        pass
+    def add_message_aqq_to_partner(self, item_id, body, recipient_id, subject):
+        params = {
+            "ItemID": item_id,
+            "MemberMessage": {
+                "Body": body,
+                "QuestionType": "General",
+                "RecipientID": recipient_id,
+                "Subject": subject
+            }
+        }
+        response = self.execute("AddMemberMessageAAQToPartner", params)
+        return response.dict()
 
 
-# my = "AgAAAA**AQAAAA**aAAAAA**MJHQWA**nY+sHZ2PrBmdj6wVnY+sEZ2PrA2dj6AGmICmDpCAoQ+dj6x9nY+seQ**94UCAA**AAMAAA**o+iZNTyOWGAyS8INiizhLa3SUxczTZAzZLrtD3fC0gYdQsNx202XzduoMKYXpMSfOKU3xmBQ+jJLd4yTTKLjkqTmLXHXskAup900s3CdxWfsb016BvDafG3sSO8/XV10eZcyudah6I+uCn2cLGLLlydwwJfpmjBWrlhup6WYfONnGwLwvnyvH2fDvQ9JYbjwbn3MxMuOUrGW+pjQiJ1F4LIV8os+H3EzCdof5x7qK/ID6IEzS0BulgB1SV2PVBnLQLejtY3gH5CiTP2JWZWM4JWJW9Eh5DEnjCiTSElmEEC1xc+v949AedcD/lXdml3dgBGIQHvhXo4sozO8vA+Ifp34PznxIURHv6Wu/SJUS+PqerwfwA5Vh2Cpm/lHILpOoyKQHPKvRdl7Z58pCftt9pv1sJvPq11HK3C20AbNO2oG7ANlT33z8iOlONrfC+HPED0hBheVOO25NGGz+834tIGws+WPRL6tqL41jD293/M4G+IfCsKBxE6U8ZNuoNKroBNn+vD9gMKsbCh/0xDw4f407kSMATrvRihZ24+hs6S7djfaopLjIC8w8bYDoE93u7xinsVeVcVe80D9tzHc9qtq1qzFTCQyMwe1MPXMkazlYjYwCl0fJHOSWHgzTSe3tISnmmT/MKCakXQuKr4q4uFYhh28/SX1j2aNUeoNT4krAQZ2BZOllnN/ItYNv9/LBTpzuFRgEZee6Z7E6CHV4r3Mgw0XdkanRhmZBcxHr93Kwbv/GAKsO4ubQWjQbn7D"
-# nm = "AgAAAA**AQAAAA**aAAAAA**7HTjVw**nY+sHZ2PrBmdj6wVnY+sEZ2PrA2dj6ABkoGoD5aHpAqdj6x9nY+seQ**94UCAA**AAMAAA**UGJaMLGzkw/V30Q7yrFVpkDxh9+F1v7X7taOlLW6WeEQCY/F6PhqPrjJfFLfw5rg93LNBvSQV4hO/cLtHS1K059mXzg61q4xHToNFk2uK+DdoFlCGbc1BD0TRyZ9zOSw4peeHJy/XUG2GwzkyPSrkBlU8X8e2IcZiyqCEILF0yl0ffDJy4Yz62JZVYCCX7HzvI/39N3ROGcUpCVbmxPE+QJI4a2Xst9ApBikHreVDntERITCRj8FhnnmAoDHGWziGN5GlNOQ40ETGX9GUX9yjK31haSpTpIsJRQBYhYeOYwo+F+LV5mFR55XDtuKD837jmKGZvpwll2pN4XhJfVbU7VFWbqyi2p4ccjxNEKXqmbJSSESvXmhiNK5J5EmAZVxh0BmXnNAHYCMJ1gZ7+sa4shnnzH12wcjMjK679iwXyYiK1YTrNmLNei4UeDFBfb2fzqm+eSDQIBK9g+HX/fZkTssU0O1m59wTeS+9GG6Bu7wTZyjU5cbCbjlQl6J4xhy4rs+efJLLAx/PfXmAODHgPF1Ai4rF/YYogFy+V9G0SiQJLQz31yxD3uJuDNyVoEB7/voPAvVutUvZcJzw2LAHIETfHG7GNMoHFA1fyLOF76YIZzsxBylxRY/x12gLlHFaKrtNAJRWpbKHO6usD0GMehDd9a/ALlSqHMPolKyaN6RMWEdov/Drq5PYTW+2OmO8GYyzrmCSk8s+OEv4LhLwkL4YBdYZyKoGo7Qf2FTqbfuYOKMblMi2MDACFSYKuvZ"
-# si = "0"
-# print EbayMessage(si, nm).get_my_messages(
+
+nm = my = "AgAAAA**AQAAAA**aAAAAA**MJHQWA**nY+sHZ2PrBmdj6wVnY+sEZ2PrA2dj6AGmICmDpCAoQ+dj6x9nY+seQ**94UCAA**AAMAAA**o+iZNTyOWGAyS8INiizhLa3SUxczTZAzZLrtD3fC0gYdQsNx202XzduoMKYXpMSfOKU3xmBQ+jJLd4yTTKLjkqTmLXHXskAup900s3CdxWfsb016BvDafG3sSO8/XV10eZcyudah6I+uCn2cLGLLlydwwJfpmjBWrlhup6WYfONnGwLwvnyvH2fDvQ9JYbjwbn3MxMuOUrGW+pjQiJ1F4LIV8os+H3EzCdof5x7qK/ID6IEzS0BulgB1SV2PVBnLQLejtY3gH5CiTP2JWZWM4JWJW9Eh5DEnjCiTSElmEEC1xc+v949AedcD/lXdml3dgBGIQHvhXo4sozO8vA+Ifp34PznxIURHv6Wu/SJUS+PqerwfwA5Vh2Cpm/lHILpOoyKQHPKvRdl7Z58pCftt9pv1sJvPq11HK3C20AbNO2oG7ANlT33z8iOlONrfC+HPED0hBheVOO25NGGz+834tIGws+WPRL6tqL41jD293/M4G+IfCsKBxE6U8ZNuoNKroBNn+vD9gMKsbCh/0xDw4f407kSMATrvRihZ24+hs6S7djfaopLjIC8w8bYDoE93u7xinsVeVcVe80D9tzHc9qtq1qzFTCQyMwe1MPXMkazlYjYwCl0fJHOSWHgzTSe3tISnmmT/MKCakXQuKr4q4uFYhh28/SX1j2aNUeoNT4krAQZ2BZOllnN/ItYNv9/LBTpzuFRgEZee6Z7E6CHV4r3Mgw0XdkanRhmZBcxHr93Kwbv/GAKsO4ubQWjQbn7D"
+nm = "AgAAAA**AQAAAA**aAAAAA**7HTjVw**nY+sHZ2PrBmdj6wVnY+sEZ2PrA2dj6ABkoGoD5aHpAqdj6x9nY+seQ**94UCAA**AAMAAA**UGJaMLGzkw/V30Q7yrFVpkDxh9+F1v7X7taOlLW6WeEQCY/F6PhqPrjJfFLfw5rg93LNBvSQV4hO/cLtHS1K059mXzg61q4xHToNFk2uK+DdoFlCGbc1BD0TRyZ9zOSw4peeHJy/XUG2GwzkyPSrkBlU8X8e2IcZiyqCEILF0yl0ffDJy4Yz62JZVYCCX7HzvI/39N3ROGcUpCVbmxPE+QJI4a2Xst9ApBikHreVDntERITCRj8FhnnmAoDHGWziGN5GlNOQ40ETGX9GUX9yjK31haSpTpIsJRQBYhYeOYwo+F+LV5mFR55XDtuKD837jmKGZvpwll2pN4XhJfVbU7VFWbqyi2p4ccjxNEKXqmbJSSESvXmhiNK5J5EmAZVxh0BmXnNAHYCMJ1gZ7+sa4shnnzH12wcjMjK679iwXyYiK1YTrNmLNei4UeDFBfb2fzqm+eSDQIBK9g+HX/fZkTssU0O1m59wTeS+9GG6Bu7wTZyjU5cbCbjlQl6J4xhy4rs+efJLLAx/PfXmAODHgPF1Ai4rF/YYogFy+V9G0SiQJLQz31yxD3uJuDNyVoEB7/voPAvVutUvZcJzw2LAHIETfHG7GNMoHFA1fyLOF76YIZzsxBylxRY/x12gLlHFaKrtNAJRWpbKHO6usD0GMehDd9a/ALlSqHMPolKyaN6RMWEdov/Drq5PYTW+2OmO8GYyzrmCSk8s+OEv4LhLwkL4YBdYZyKoGo7Qf2FTqbfuYOKMblMi2MDACFSYKuvZ"
+nm ='AgAAAA**AQAAAA**aAAAAA**C6d8Vw**nY+sHZ2PrBmdj6wVnY+sEZ2PrA2dj6AAkIGgC5GKqAudj6x9nY+seQ**94UCAA**AAMAAA**eCsndGWz9QGRmaERU4mzDBDmCBIgLA2Yk1PaZLnrOjPvIMXNITpIeH9PRAqAPdykJ9AihKAFLRKl4AfIS6c2sNf9AomUiUXlmm5j+OpTS+/C9c/gIpAQrBY2AELmkq8QIpWQ5bmgvFDr7jn3BxpwwcUDCeAv/pUcvQYpXnyDxI8H0bIsKQudUKaL7sS/5gVqgtzN561rt3s5lBSpfoP4qzdQ9iSfaIWIX7z40XE18BRLDsY/3rrsGlASwaShSul7StJWkjd0NL3AiYPiPuJtRzahUTtPRLP5NxxKJNJZhEHXRqXNcFVN3FYEAuiKDb0hE2Jr9KXL3A4lJNjaNhNquGkqTyA9NB3Vei2zCZgVWvlaQAavJhn+ZFBdQBFjNBdahK78s+Ve+Ym7bbEXKlhQYUFmBcXIUgOTr3MR2ghe3peHlRSSbKeaPDTIKcJ5f6PNKqGjHaQYOnu8igGluHVxb2gKiXkT/UXH08lFzOcC3bP7WkEoo/DLPBbxFsguCbuY0gtjyeVUcDU3idpFbjrCpy2bBlPBp9Qts3Fdw87O1guOk+B6UU/LEuGYbcRRyzWQie1QWbgiFSPbA4rLYemIrsh6iIRgKxASFI+ZIeqVdYsALy8PHsEE6jNzQMcf5R2e/DBhW7Rf/20by6yZ3eb6ONBlm9UWVqsxMRL0aYfKi1PIG1V1RKaq+ul5ypiTDPK6lLadihibYn2I8BvD4n+VdRVNcDCYpBppjKrNtR+UgI+1Jr+n2tAc5B9xOq/0NCnr'
+si = "0"
+
+# res = EbayMessage(si, nm).get_my_messages(
 #     detail_level="ReturnHeaders",
 #     message_ids=["87006649816"]
 # )
+# import json
+# print json.dumps(res, indent=2)
+
+
+# def tor(response):
+#     import json
+#     print json.dumps(response, indent=2, encoding="utf-8")
+#
+# handler = EbayMessage(si, nm)
+
+# result = handler.add_message_aqq_to_partner(
+#     item_id="263202111503", body="just test the api, ignore it !",
+#     recipient_id="hpulfc-5", subject="Test Case"
+# )
+# tor(result)
+
+
+# tor(handler.get_my_messages(detail_level="ReturnHeaders",
+#                             folder_id=0,
+#                             current_page=1,
+#                             page_size=5
+#                             ))
+
+# tor(handler.get_my_messages(detail_level="ReturnMessages",
+#                             message_ids=["90326187276", "90553900446"]
+#                             ))
+
+# tor(handler.get_member_messages(
+#     mail_message_type='All',
+#     item_id='282604439705',
+#     # sender_id='yaya-wholesale365',
+#     # member_message_id="2314",
+#     # start_create_time="2016-03-23T00:01:52",
+#     # end_create_time="2017-07-23T03:01:52",
+#     page_size=35,
+#     current_page=0
+# ))
+
+# tor(handler.add_message_rtq(
+#     parent_message_id="1570143782013",
+#     item_id='282604439705',
+#     body=u'这是中文',
+#     recipient_id="x.x3155"
+# ))
+
+
+#  'MessageID': '90605905296', 'ExternalMessageID': '1570143782013'
+
+
+# tor(handler.get_my_messages(
+#     detail_level='ReturnHeaders',
+#     folder_id="1",
+#     current_page=1,
+#     page_size=100,
+# ))

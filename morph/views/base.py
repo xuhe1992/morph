@@ -78,6 +78,7 @@ class BaseHandler(SessionBaseHandler, RequestUtilMixin):
 
     def on_request(self):
         self.write_error(404)
+        pass
 
     def get_current_user(self):
         try:

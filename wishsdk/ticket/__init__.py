@@ -4,6 +4,7 @@
 # @date: 15/12/28
 # @description:
 
+from morph.lib.model.shop import Shop
 from wishsdk.connection import Connection
 
 
@@ -144,3 +145,20 @@ m = {
     },
     u'message': u''
 }
+
+if __name__ == "__main__":
+    shop = Shop()
+    shop.account = "373756ae5115474c8f0bcba44159194a"
+    shop.session = "f5d42d3b104c4043859e09785e573e05"
+    shop.owner = "596d75982eac1176e8290607"
+    shop.platform = "Wish"
+    shop.id = 15183
+    shop.site_id = 1
+
+    hanler = WishTicket(shop)
+
+    # result = hanler.list_all_tickets()
+    #
+    # import json
+    # print json.dumps(result, indent=2)
+

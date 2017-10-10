@@ -24,51 +24,73 @@ CELERY_SEND_EVENTS = False
 
 
 CELERY_QUEUES = {
-    "sync_customer_list": {
-        "routing_key": "sync.customer.list",
-        "exchange": "sync_customer_list",
+    # "sync_customer_list": {
+    #     "routing_key": "sync.customer.list",
+    #     "exchange": "sync_customer_list",
+    #     "exchange_type": "direct",
+    # },
+    # "sync_smt_customer_list": {
+    #     "routing_key": "sync.smt.customer.list",
+    #     "exchange": "sync_smt_customer_list",
+    #     "exchange_type": "direct",
+    # },
+    "sync_ebay_msg_list": {
+        "routing_key": "sync.ebay.msg.list",
+        "exchange": "sync_ebay_msg_list",
         "exchange_type": "direct",
     },
-    "sync_smt_customer_list": {
-        "routing_key": "sync.smt.customer.list",
-        "exchange": "sync_smt_customer_list",
-        "exchange_type": "direct",
-    },
-    "sync_customer_detail": {
-        "routing_key": "sync.customer.detail",
-        "exchange": "sync_customer_detail",
-        "exchange_type": "direct",
-    },
-    "sync_smt_customer_detail": {
-        "routing_key": "sync.smt.customer.detail",
-        "exchange": "sync_smt_customer_detail",
+    # "sync_customer_detail": {
+    #     "routing_key": "sync.customer.detail",
+    #     "exchange": "sync_customer_detail",
+    #     "exchange_type": "direct",
+    # },
+    # "sync_smt_customer_detail": {
+    #     "routing_key": "sync.smt.customer.detail",
+    #     "exchange": "sync_smt_customer_detail",
+    #     "exchange_type": "direct",
+    # },
+    "sync_ebay_msg_detail": {
+        "routing_key": "sync.ebay.msg.detail",
+        "exchange": "sync_ebay_msg_detail",
         "exchange_type": "direct",
     },
 }
 
 CELERY_ROUTES = (
+    # {
+    #     "morph.task.sync_customer_list.sync_customer_list": {
+    #         "routing_key": "sync.customer.list",
+    #         "queue": "sync_customer_list",
+    #     }
+    # },
     {
-        "morph.task.sync_customer_list.sync_customer_list": {
-            "routing_key": "sync.customer.list",
-            "queue": "sync_customer_list",
+        "morph.task.sync_customer_list.sync_ebay_msg_list": {
+            "routing_key": "sync.ebay.msg.list",
+            "queue": "sync_ebay_msg_list",
         }
     },
+    # {
+    #     "morph.task.sync_customer_list.sync_smt_customer_list": {
+    #         "routing_key": "sync.smt.customer.list",
+    #         "queue": "sync_smt_customer_list",
+    #     }
+    # },
+    # {
+    #     "morph.task.sync_customer_detail.sync_customer_detail": {
+    #         "routing_key": "sync.customer.detail",
+    #         "queue": "sync_customer_detail",
+    #     }
+    # },
+    # {
+    #     "morph.task.sync_customer_detail.sync_smt_customer_detail": {
+    #         "routing_key": "sync.smt.customer.detail",
+    #         "queue": "sync_smt_customer_detail",
+    #     }
+    # },
     {
-        "morph.task.sync_customer_list.sync_smt_customer_list": {
-            "routing_key": "sync.smt.customer.list",
-            "queue": "sync_smt_customer_list",
-        }
-    },
-    {
-        "morph.task.sync_customer_detail.sync_customer_detail": {
-            "routing_key": "sync.customer.detail",
-            "queue": "sync_customer_detail",
-        }
-    },
-    {
-        "morph.task.sync_customer_detail.sync_smt_customer_detail": {
-            "routing_key": "sync.smt.customer.detail",
-            "queue": "sync_smt_customer_detail",
+        "morph.task.sync_customer_detail.sync_ebay_msg_detail": {
+            "routing_key": "sync.ebay.msg.detail",
+            "queue": "sync_ebay_msg_detail",
         }
     },
 )

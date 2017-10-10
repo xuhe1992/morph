@@ -13,6 +13,9 @@ from morph.lib.utils.logger_util import logger
 from morph.task import morph_celery
 
 
+
+
+
 @morph_celery.task(ignore_result=True)
 def sync_customer_detail(shop, channel_id, **kwargs):
     try:
@@ -31,11 +34,17 @@ def sync_customer_detail(shop, channel_id, **kwargs):
 
 
 @morph_celery.task(ignore_result=True)
-def sync_smt_customer_detail(handler, channel_id, **kwargs):
+def sync_smt_customer_detail(handler, channel_id, msg_source, **kwargs):
     try:
-        handler.sync_message_detail(channel_id, **kwargs)
+        print (u"AliExpress平台编号为%s的客服通道开始同步..." % str(channel_id))
+        handler.sync_message_detail(channel_id, msg_source, **kwargs)
         logger.info(u"AliExpress平台编号为%s的客服通道同步成功" % str(channel_id))
     except Exception, e:
         logger.error(traceback.format_exc(e))
         logger.info(u"AliExpress平台编号为%s的客服通道同步失败，失败原因：%s" % (
             str(channel_id), traceback.format_exc(e)))
+
+
+@morph_celery.task(ignore_result=True)
+def sync_ebay_msg_detail(shop, channel_id, **kwargs):
+    sync_customer_detail(shop, channel_id, **kwargs)

@@ -25,7 +25,7 @@ ECHO_SQL = False
 DB = {
     "user": "kratos",
     "password": "3vUbY52IJ2fJq7KwWPeItNrz8",
-    "host": "230.actneed.com",
+    "host": "193.actneed.com",
     "db_name": "fr",
 }
 

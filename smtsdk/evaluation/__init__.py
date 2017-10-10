@@ -8,6 +8,7 @@
 """
 
 from smtsdk.connection import Connection
+from morph.lib.model.shop import Shop
 
 
 class AliEvaluation(Connection):
@@ -62,3 +63,23 @@ class AliEvaluation(Connection):
         }
         response = self.execute('api.evaluation.saveSellerFeedback', params)
         return response
+
+if __name__ == "__main__":
+    shop = Shop()
+    shop.account = "a36c6039-cca4-4638-a84a-dc1ec9c4200f"
+    shop.session = "0bdf6f64-372d-4b6a-b68b-5efe64bc18bd"
+    shop.site_id = 2
+    shop.platform = "AliExpress"
+    shop.name = 'Limerence'
+    handler = AliEvaluation(shop)
+    # result = handler.get_msg_detail_list(
+    #     channel_id="66947353601", msg_source="message_center"
+    # )
+    #
+    # result = handler.get_msg_relation_list(
+    #     msg_source="message_center"
+    # )
+
+    # result = handler.get_evaluation_list(current_page=1, page_size=3)
+    # import json
+    # print json.dumps(result, indent=2)

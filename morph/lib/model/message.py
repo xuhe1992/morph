@@ -21,6 +21,7 @@ class Message(Base):
     id = sa.Column(BIGINT(unsigned=True), primary_key=True, autoincrement=True)
     channel_id = sa.Column(BIGINT(unsigned=True), sa.ForeignKey("channel.id"), nullable=False)
     origin_id = sa.Column(sa.String(64), nullable=False)
+    external_message_id = sa.Column(sa.String(64), nullable=False)
     content = sa.Column(sa.Text(collation="utf8_bin"), nullable=False)
     image_urls = sa.Column(sa.String(1024), nullable=True)
     receive_time = sa.Column(sa.DateTime, nullable=False)

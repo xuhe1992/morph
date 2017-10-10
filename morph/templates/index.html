@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>channel_messages</title>
+
+    <style>
+        #message_area {
+            margin-top: 66px;
+        }
+        .message-content {
+            border: solid 1px #ccc;
+            border-radius: 3px;
+            padding: 15px 10px;
+            /* margin-bottom: -10px; */
+            font-size: 14px;
+            margin:19px 0px ;
+            font-family: Helvetica;
+        }
+        .li-item {
+            width: 250px;
+{#            height: 40px;#}
+            border-bottom: 1px dotted #c3c3c3;
+            list-style-type: none;
+        }
+        .inner_ul {
+            padding-left: 20px;
+            display: none;
+            width: auto;
+        }
+        .c {
+            list-style-type: none;
+        }
+        .nav {
+            width: 300px;
+            border-left:1px solid #eee;
+            border-top:1px solid #eee;
+            border-bottom:1px solid #eee;
+            float: left;
+            list-style-type: none;
+        }
+        .nav:last-child{
+            border-right: 1px solid #eeeeee;
+        }
+
+
+    </style>
+    <link rel="stylesheet" type="text/css" href="{{ static_url("css/bootstrap.css") }}">
+</head>
+<body>
+
+<div>
+    <div style="align-content: center; float: left">
+        <input type="text" id="search_text" />
+        <input type="button" value="搜索" id="search_button"/>
+        <table>
+            <thead>
+                <tr>
+                    <td>channel_id</td>
+                    <td>last_content</td>
+                    <td>date</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in data["channels"] %}
+                    <tr>
+                        <td>{{ item["id"] }}</td>
+                        <td data-id="{{ item['id'] }}"><a href="javascript:void(0);">{{ item["last_msg_content"] }}</a></td>
+                        <td>{{ item["last_msg_date"] }}</td>
+                    </tr>
+                {% end %}
+
+            </tbody>
+        </table>
+    </div>
+    <div style="right: 50px; width: 1000px; float: right">
+        <div style="padding-left: 50px">
+            <textarea rows="3" cols="100" placeholder="回复一条信息" id="reply_content">
+
+            </textarea><br><br>
+            <input type="button" id="submit_reply" value="回复" style="position: absolute; right: 250px;"/>
+        </div>
+        <div>
+            <input style="display:none" value="" id="reply_id">
+            <input style="display:none" value="" id="item_id">
+        </div>
+        <div style="padding-left: 50px" id="message_area">
+            sdafafffffffffffffffff
+        </div>
+        <div>
+            <ul>
+                <li class="li-item">1</li>
+                <li class="li-item">2</li>
+                <li class="li-item">3</li>
+                <li class="li-item">4</li>
+                <li class="li-item">5</li>
+
+                <div class="inner_ul">
+                    <li class="c">a</li>
+                    <li class="c">b</li>
+                    <li class="c">c</li>
+                </div>
+
+                <li class="li-item">7</li>
+                <li class="li-item">8</li>
+                <li class="li-item">9</li>
+                <li class="li-item">0</li>
+            </ul>
+
+            <button class="tt">asdf</button>
+        </div>
+        <div>
+            <ul>
+                <li class="nav">q</li>
+                <li class="nav">w</li>
+                <li class="nav">e</li>
+            </ul>
+        </div>
+        <br>
+        <div class="container">
+            <ul class="list-unstyled nav nav-tabs ">
+                <li>qwe</li>
+                <li>asd</li>
+                <li>axd</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+    <script src="{{ static_url('js/jquery.min.js') }}"></script>
+    <script src="{{ static_url('js/jquery.smartmenus.min.js') }}"></script>
+    <script>
+        $("table").on('click', 'a', function(){
+            var channel_id = $($(this).closest("td")).attr("data-id");
+            $.ajax({
+                "url": "/customer/list/message",
+                "type": "GET",
+                "data": {
+                    "channel_id": String(channel_id)
+                },
+                success: function (data) {
+                    var result = data["data"]["messages"];
+                    var $messsage_area = $("#message_area");
+                    $messsage_area.empty();
+                    $("#reply_id").val(result[0]["reply_id"]);
+                    $("#item_id").val(channel_id);
+                    for (var i = 0; i < result.length; i ++ ){
+
+                            $messsage_area.append("<div><div class='message-content'>"+ result[i]["content"] + "</div>"
+                               // + result[i]["source"] + "<span style='right: 50px;position: fixed;'>"+result[i]["receive_time"] +"</span>"
+                                + "" +"</div>")
+                    }
+                },
+                error: function () {
+                }
+            })
+        });
+{#        $('a').click()#}
+
+        $("#search_button").click(function () {
+           var search_text = $("#search_text").val().trim();
+           $.ajax({
+               "url": "/list/search",
+               "data": {
+                   "shop_id": 7612,
+                   "search_key": search_text
+               },
+               "success": function (data) {
+                   if (data["status"] == 1){
+                       var channels = data["data"];
+                       var channel_container = $("tbody");
+                       channel_container.empty();
+                       for (var i = 0; i < channels.length; i ++){
+                            var tmp = "<tr>";
+                            tmp += "<td>" + channels[i]["id"] + "</td>";
+                            tmp += "<td data-id='"+ channels[i]["id"] +"'><a href='javascript:void(0);'>" + channels[i]["last_msg_content"] + "</a></td>";
+                            tmp += "<td>" + channels[i]["last_msg_date"] + "</td>";
+                            tmp += "</tr>";
+                            channel_container.append(tmp);
+                       }
+                   }
+               }
+           })
+        });
+
+        $("#submit_reply").click(function () {
+            $.ajax({
+                "url": "/list/message",
+                "type": "POST",
+                "data": {
+                    "parent_message_id": $("#reply_id").val(),
+                    "item_id": $("#item_id").val(),
+                    "body": $("#reply_content").val().trim(),
+                    "shop_id": 7612,
+                },
+                "success": function (data) {
+                    if(data["status"] == 1){
+                        window.alert("发送成功！");
+                    }
+                    else {
+                        window.alert("发送未成功!");
+                        console.log(data["data"]);
+                        console.log(data["message"]);
+                    }
+
+                }
+            })
+        });
+
+        {#$("#message_area").bind("mousedown", function (e) {
+            if (e.which == 3) {
+
+                //alert(e.pageX+":"+e.pageY);
+            }
+        })#}
+        {#var yjoption = {
+                    name: "操作",
+                    offsetX: 2,
+                    offsetY: 2,
+                    textLimit: 10,
+                    beforeShow: $.noop,
+                    afterShow: $.noop
+                };
+        var yjdata = [
+            [{
+                text: "清除时间片",
+                func: function () { alert("清除成功！"); }
+            }, {
+                text: "应用时间片",
+                func: function () {
+                    alert("应用成功！");
+                }
+            }]
+        ];
+        $("body").smartMenu(yjdata, yjoption);#}
+
+        $(".li-item").click(function(){
+            console.log("123");
+            $(this).next().slideToggle(300);
+        });
+
+
+    </script>
+
+</body>
+</html>

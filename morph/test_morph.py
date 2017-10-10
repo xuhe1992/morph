@@ -15,6 +15,7 @@ from tornado import ioloop
 from tornado import options
 from morph.config import settings
 from morph.lib.utils.logger_util import logger
+from morph.views.backend.customer import CustomerHandler
 
 
 SETTINGS = dict(
@@ -41,6 +42,9 @@ session_settings = dict(
 )
 
 handlers = [
+    (r"/customer/([\w/]+)", CustomerHandler),
+
+    # (r"/(customer)/[(\w)/]+", CustomerHandler)
 ]
 
 
